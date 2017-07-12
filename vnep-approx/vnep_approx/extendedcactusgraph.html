@@ -1,0 +1,261 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>extendedcactusgraph &#8212; vnep-approx  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="extendedgraph" href="extendedgraph.html" />
+    <link rel="prev" title="commutativity_model" href="commutativity_model.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-vnep_approx.extendedcactusgraph">
+<span id="extendedcactusgraph"></span><h1><code class="docutils literal"><span class="pre">extendedcactusgraph</span></code><a class="headerlink" href="#module-vnep_approx.extendedcactusgraph" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph">
+<em class="property">class </em><code class="descclassname">vnep_approx.extendedcactusgraph.</code><code class="descname">ExtendedCactusGraph</code><span class="sig-paren">(</span><em>request</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.LAYER_NODE">
+<code class="descname">LAYER_NODE</code><em class="property"> = 2</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.LAYER_NODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.SINK_NODE">
+<code class="descname">SINK_NODE</code><em class="property"> = 3</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.SINK_NODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.SOURCE_NODE">
+<code class="descname">SOURCE_NODE</code><em class="property"> = 1</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.SOURCE_NODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.bfs_request">
+<code class="descname">bfs_request</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.bfs_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>this will be a copy of the request, with all edges oriented according to the BFS orde</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.cycle_layer_nodes">
+<code class="descname">cycle_layer_nodes</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.cycle_layer_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>“layer nodes” within cycles</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.get_associated_original_resources">
+<code class="descname">get_associated_original_resources</code><span class="sig-paren">(</span><em>ext_node</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.get_associated_original_resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.path_layer_nodes">
+<code class="descname">path_layer_nodes</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.path_layer_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>“layer nodes” within paths (i.e. the nodes from “substrate copies”)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.reversed_request_edges">
+<code class="descname">reversed_request_edges</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.reversed_request_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>this contains edges that point towards the root. edges are stored in their original orientation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.sink_nodes">
+<code class="descname">sink_nodes</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.sink_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>“super sink” nodes, on which inflow will be induced</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraph.source_nodes">
+<code class="descname">source_nodes</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraph.source_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>“super source” nodes, on which outflow is induced</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedCactusGraphError">
+<em class="property">exception </em><code class="descclassname">vnep_approx.extendedcactusgraph.</code><code class="descname">ExtendedCactusGraphError</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedCactusGraphError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphCycle">
+<em class="property">class </em><code class="descclassname">vnep_approx.extendedcactusgraph.</code><code class="descname">ExtendedGraphCycle</code><span class="sig-paren">(</span><em>start_node</em>, <em>end_node</em>, <em>original_branches</em>, <em>ext_graph_branches</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphCycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>This namedtuple represents a cycle in the extended graph.</p>
+<ul class="simple">
+<li>start_node/end_node: The start/end node of the cycle in the original request, as defined by the BFS
+ordering</li>
+<li>original_branches: A represention of the cycles’s branches as a list of lists containing the
+original request edges for each branch</li>
+<li>ext_graph_branches: A representation of the branches in the extended graph as a list of branches.
+A branch is a dictionary, mapping each possible substrate end node to an ExtendedGraphPath
+instance (see description below)</li>
+</ul>
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphCycle.end_node">
+<code class="descname">end_node</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphCycle.end_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphCycle.ext_graph_branches">
+<code class="descname">ext_graph_branches</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphCycle.ext_graph_branches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphCycle.original_branches">
+<code class="descname">original_branches</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphCycle.original_branches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphCycle.start_node">
+<code class="descname">start_node</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphCycle.start_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphPath">
+<em class="property">class </em><code class="descclassname">vnep_approx.extendedcactusgraph.</code><code class="descname">ExtendedGraphPath</code><span class="sig-paren">(</span><em>start_node</em>, <em>end_node</em>, <em>original_path</em>, <em>extended_path</em>, <em>extended_edges</em>, <em>extended_nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>This namedtuple represents a path in the extended graph.</p>
+<ul class="simple">
+<li>start_node/end_node: The start/end node of the cycle in the original request, as defined by the BFS
+ordering</li>
+<li>original_path: A represention of the cycles’s branches as a list containing the original request edges
+in the BFS ordering (i.e. some might be reversed)</li>
+<li>extended_path: A dictionary mapping each request node on the path to the extended graph edges associated
+with the node mapping (inter-layer edges) and each request edge on the path to the extended graph edges
+associated with the edge mapping (layer edges)</li>
+<li>extended_edges: A set containing each extended graph edge that is associated with the path.</li>
+<li>extended_nodes: A set containing each extended graph node that is associated with the path</li>
+</ul>
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphPath.end_node">
+<code class="descname">end_node</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphPath.end_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphPath.extended_edges">
+<code class="descname">extended_edges</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphPath.extended_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphPath.extended_nodes">
+<code class="descname">extended_nodes</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphPath.extended_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphPath.extended_path">
+<code class="descname">extended_path</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphPath.extended_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphPath.original_path">
+<code class="descname">original_path</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphPath.original_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.extendedcactusgraph.ExtendedGraphPath.start_node">
+<code class="descname">start_node</code><a class="headerlink" href="#vnep_approx.extendedcactusgraph.ExtendedGraphPath.start_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="commutativity_model.html" title="previous chapter"><code class="docutils literal"><span class="pre">commutativity_model</span></code></a></li>
+      <li>Next: <a href="extendedgraph.html" title="next chapter"><code class="docutils literal"><span class="pre">extendedgraph</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vnep_approx/extendedcactusgraph.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/vnep_approx/extendedcactusgraph.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

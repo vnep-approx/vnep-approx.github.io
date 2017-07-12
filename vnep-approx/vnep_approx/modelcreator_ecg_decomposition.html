@@ -1,0 +1,178 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>modelcreator_ecg_decomposition &#8212; vnep-approx  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="randomized_rounding" href="randomized_rounding.html" />
+    <link rel="prev" title="modelcreator_decomposition" href="modelcreator_decomposition.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-vnep_approx.modelcreator_ecg_decomposition">
+<span id="modelcreator-ecg-decomposition"></span><h1><code class="docutils literal"><span class="pre">modelcreator_ecg_decomposition</span></code><a class="headerlink" href="#module-vnep_approx.modelcreator_ecg_decomposition" title="Permalink to this headline">¶</a></h1>
+<dl class="exception">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.CactusDecompositionError">
+<em class="property">exception </em><code class="descclassname">vnep_approx.modelcreator_ecg_decomposition.</code><code class="descname">CactusDecompositionError</code><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.CactusDecompositionError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.Decomposition">
+<em class="property">class </em><code class="descclassname">vnep_approx.modelcreator_ecg_decomposition.</code><code class="descname">Decomposition</code><span class="sig-paren">(</span><em>req</em>, <em>substrate</em>, <em>flow_values</em>, <em>fractional_decomposition_abortion_flow</em>, <em>fractional_decomposition_accuracy</em>, <em>extended_graph=None</em>, <em>substrate_resources=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.Decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.Decomposition.compute_mappings">
+<code class="descname">compute_mappings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.Decomposition.compute_mappings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.DecompositionResult">
+<em class="property">class </em><code class="descclassname">vnep_approx.modelcreator_ecg_decomposition.</code><code class="descname">DecompositionResult</code><span class="sig-paren">(</span><em>solution</em>, <em>temporal_log</em>, <em>solution_status</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.DecompositionResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.DecompositionResult.get_solution">
+<code class="descname">get_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.DecompositionResult.get_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition">
+<em class="property">class </em><code class="descclassname">vnep_approx.modelcreator_ecg_decomposition.</code><code class="descname">ModelCreatorCactusDecomposition</code><span class="sig-paren">(</span><em>scenario</em>, <em>gurobi_settings=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.ALGORITHM_ID">
+<code class="descname">ALGORITHM_ID</code><em class="property"> = 'CactusDecomposition'</em><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.ALGORITHM_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.create_constraints_other_than_bounding_loads_by_capacities">
+<code class="descname">create_constraints_other_than_bounding_loads_by_capacities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.create_constraints_other_than_bounding_loads_by_capacities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.create_variables_other_than_embedding_decision_and_request_load">
+<code class="descname">create_variables_other_than_embedding_decision_and_request_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.create_variables_other_than_embedding_decision_and_request_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.fix_mapping_variables_according_to_integral_solution">
+<code class="descname">fix_mapping_variables_according_to_integral_solution</code><span class="sig-paren">(</span><em>solution</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.fix_mapping_variables_according_to_integral_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.make_flow_variable_dict">
+<code class="descname">make_flow_variable_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.make_flow_variable_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.post_process_fractional_computation">
+<code class="descname">post_process_fractional_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.post_process_fractional_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.post_process_integral_computation">
+<code class="descname">post_process_integral_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.post_process_integral_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.preprocess_input">
+<code class="descname">preprocess_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.preprocess_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.recover_fractional_solution_from_variables">
+<code class="descname">recover_fractional_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.recover_fractional_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.recover_integral_solution_from_variables">
+<code class="descname">recover_integral_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.modelcreator_ecg_decomposition.ModelCreatorCactusDecomposition.recover_integral_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="modelcreator_decomposition.html" title="previous chapter"><code class="docutils literal"><span class="pre">modelcreator_decomposition</span></code></a></li>
+      <li>Next: <a href="randomized_rounding.html" title="next chapter"><code class="docutils literal"><span class="pre">randomized_rounding</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vnep_approx/modelcreator_ecg_decomposition.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/vnep_approx/modelcreator_ecg_decomposition.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

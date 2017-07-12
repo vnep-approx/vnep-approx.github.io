@@ -1,0 +1,300 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>randomized_rounding_triumvirate &#8212; vnep-approx  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="reduce_triumvirate_result_pickle" href="reduce_triumvirate_result_pickle.html" />
+    <link rel="prev" title="randomized_rounding" href="randomized_rounding.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-vnep_approx.randomized_rounding_triumvirate">
+<span id="randomized-rounding-triumvirate"></span><h1><code class="docutils literal"><span class="pre">randomized_rounding_triumvirate</span></code><a class="headerlink" href="#module-vnep_approx.randomized_rounding_triumvirate" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding_triumvirate.</code><code class="descname">DecompositionMDK</code><span class="sig-paren">(</span><em>scenario</em>, <em>fractional_solution</em>, <em>gurobi_settings=None</em>, <em>optimization_callback=&lt;function gurobi_callback&gt;</em>, <em>lp_output_file=None</em>, <em>potential_iis_filename=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.calc_max_loads">
+<code class="descname">calc_max_loads</code><span class="sig-paren">(</span><em>L</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.calc_max_loads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.compute_integral_solution">
+<code class="descname">compute_integral_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.compute_integral_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.create_constraints">
+<code class="descname">create_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.create_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.create_objective">
+<code class="descname">create_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.create_objective" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.create_variables">
+<code class="descname">create_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.create_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.post_process_integral_computation">
+<code class="descname">post_process_integral_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.post_process_integral_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.preprocess_input">
+<code class="descname">preprocess_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.preprocess_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.recover_integral_solution_from_variables">
+<code class="descname">recover_integral_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.DecompositionMDK.recover_integral_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingError">
+<em class="property">exception </em><code class="descclassname">vnep_approx.randomized_rounding_triumvirate.</code><code class="descname">RandomizedRoundingError</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding_triumvirate.</code><code class="descname">RandomizedRoundingMetaData</code><span class="sig-paren">(</span><em>time_preprocessing</em>, <em>time_optimization</em>, <em>time_postprocessing</em>, <em>lost_flow_in_decomposition</em>, <em>temporal_log</em>, <em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.lost_flow_in_decomposition">
+<code class="descname">lost_flow_in_decomposition</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.lost_flow_in_decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.status">
+<code class="descname">status</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.temporal_log">
+<code class="descname">temporal_log</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.temporal_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.time_optimization">
+<code class="descname">time_optimization</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.time_optimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.time_postprocessing">
+<code class="descname">time_postprocessing</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.time_postprocessing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.time_preprocessing">
+<code class="descname">time_preprocessing</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingMetaData.time_preprocessing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding_triumvirate.</code><code class="descname">RandomizedRoundingSolutionData</code><span class="sig-paren">(</span><em>profit</em>, <em>max_node_load</em>, <em>max_edge_load</em>, <em>time_to_round_solution</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData.max_edge_load">
+<code class="descname">max_edge_load</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData.max_edge_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData.max_node_load">
+<code class="descname">max_node_load</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData.max_node_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData.profit">
+<code class="descname">profit</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData.profit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData.time_to_round_solution">
+<code class="descname">time_to_round_solution</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingSolutionData.time_to_round_solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding_triumvirate.</code><code class="descname">RandomizedRoundingTriumvirat</code><span class="sig-paren">(</span><em>scenario</em>, <em>gurobi_settings=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.ALGORITHM_ID">
+<code class="descname">ALGORITHM_ID</code><em class="property"> = 'RandomizedRoundingTriumvirat'</em><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.ALGORITHM_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.calc_max_loads">
+<code class="descname">calc_max_loads</code><span class="sig-paren">(</span><em>L</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.calc_max_loads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.check_whether_mapping_would_obey_resource_violations">
+<code class="descname">check_whether_mapping_would_obey_resource_violations</code><span class="sig-paren">(</span><em>L</em>, <em>mapping_loads</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.check_whether_mapping_would_obey_resource_violations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.collect_X_randomized_rounding_samples_with_potential_violations">
+<code class="descname">collect_X_randomized_rounding_samples_with_potential_violations</code><span class="sig-paren">(</span><em>number_of_samples</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.collect_X_randomized_rounding_samples_with_potential_violations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.compute_integral_solution">
+<code class="descname">compute_integral_solution</code><span class="sig-paren">(</span><em>onlyloads=True</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.compute_integral_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.init_model_creator">
+<code class="descname">init_model_creator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.init_model_creator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.round_solution_without_violations">
+<code class="descname">round_solution_without_violations</code><span class="sig-paren">(</span><em>number_of_samples</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.round_solution_without_violations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.rounding_iteration_violations_allowed_sampling_max_violations">
+<code class="descname">rounding_iteration_violations_allowed_sampling_max_violations</code><span class="sig-paren">(</span><em>L</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.rounding_iteration_violations_allowed_sampling_max_violations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.rounding_iteration_violations_without_violations">
+<code class="descname">rounding_iteration_violations_without_violations</code><span class="sig-paren">(</span><em>L</em>, <em>outer_tries</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumvirat.rounding_iteration_violations_without_violations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratReducedResult_January_2017">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding_triumvirate.</code><code class="descname">RandomizedRoundingTriumviratReducedResult_January_2017</code><span class="sig-paren">(</span><em>meta_data</em>, <em>best_feasible</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratReducedResult_January_2017" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratReducedResult_January_2017.best_feasible">
+<code class="descname">best_feasible</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratReducedResult_January_2017.best_feasible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratReducedResult_January_2017.meta_data">
+<code class="descname">meta_data</code><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratReducedResult_January_2017.meta_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratResult">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding_triumvirate.</code><code class="descname">RandomizedRoundingTriumviratResult</code><span class="sig-paren">(</span><em>meta_data</em>, <em>collection_of_samples_with_violations</em>, <em>result_wo_violations</em>, <em>mdk_result</em>, <em>mdk_meta_data</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratResult.cleanup_references">
+<code class="descname">cleanup_references</code><span class="sig-paren">(</span><em>original_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratResult.cleanup_references" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratResult.get_solution">
+<code class="descname">get_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding_triumvirate.RandomizedRoundingTriumviratResult.get_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="randomized_rounding.html" title="previous chapter"><code class="docutils literal"><span class="pre">randomized_rounding</span></code></a></li>
+      <li>Next: <a href="reduce_triumvirate_result_pickle.html" title="next chapter"><code class="docutils literal"><span class="pre">reduce_triumvirate_result_pickle</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vnep_approx/randomized_rounding_triumvirate.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/vnep_approx/randomized_rounding_triumvirate.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

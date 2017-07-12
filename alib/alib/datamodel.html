@@ -1,0 +1,476 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>alib.datamodel &#8212; alib  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="alib.evaluation" href="evaluation.html" />
+    <link rel="prev" title="Welcome to alib’s documentation!" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-alib.datamodel">
+<span id="alib-datamodel"></span><h1><code class="docutils literal"><span class="pre">alib.datamodel</span></code><a class="headerlink" href="#module-alib.datamodel" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="alib.datamodel.Graph">
+<em class="property">class </em><code class="descclassname">alib.datamodel.</code><code class="descname">Graph</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>representing a directed graph ( G = ( V , E) )
+Attributes :</p>
+<dl class="method">
+<dt id="alib.datamodel.Graph.add_edge">
+<code class="descname">add_edge</code><span class="sig-paren">(</span><em>tail</em>, <em>head</em>, <em>bidirected=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.add_edge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.add_node">
+<code class="descname">add_node</code><span class="sig-paren">(</span><em>node</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.add_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.check_connectivity">
+<code class="descname">check_connectivity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.check_connectivity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_edges">
+<code class="descname">get_edges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_in_edges">
+<code class="descname">get_in_edges</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_in_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_in_neighbors">
+<code class="descname">get_in_neighbors</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_in_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_name">
+<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_nodes">
+<code class="descname">get_nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_number_of_edges">
+<code class="descname">get_number_of_edges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_number_of_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_number_of_nodes">
+<code class="descname">get_number_of_nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_number_of_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_out_edges">
+<code class="descname">get_out_edges</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_out_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_out_neighbors">
+<code class="descname">get_out_neighbors</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_out_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_shortest_paths_cost">
+<code class="descname">get_shortest_paths_cost</code><span class="sig-paren">(</span><em>node</em>, <em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_shortest_paths_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.get_shortest_paths_cost_dict">
+<code class="descname">get_shortest_paths_cost_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.get_shortest_paths_cost_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.initialize_shortest_paths_costs">
+<code class="descname">initialize_shortest_paths_costs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.initialize_shortest_paths_costs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Graph.print_shortest_path">
+<code class="descname">print_shortest_path</code><span class="sig-paren">(</span><em>including_shortest_path_costs=True</em>, <em>data=False</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Graph.print_shortest_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.datamodel.LinearRequest">
+<em class="property">class </em><code class="descclassname">alib.datamodel.</code><code class="descname">LinearRequest</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>represents a linear request / service chain graph</p>
+<dl class="method">
+<dt id="alib.datamodel.LinearRequest.add_edge">
+<code class="descname">add_edge</code><span class="sig-paren">(</span><em>tail</em>, <em>head</em>, <em>demand</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest.add_edge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.LinearRequest.add_latency_requirement">
+<code class="descname">add_latency_requirement</code><span class="sig-paren">(</span><em>path</em>, <em>latency</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest.add_latency_requirement" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds to a specific ‘path’ a latency requirement
+important: the order of edges must be respected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.LinearRequest.add_node">
+<code class="descname">add_node</code><span class="sig-paren">(</span><em>i</em>, <em>demand</em>, <em>ntype</em>, <em>allowed_nodes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest.add_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.LinearRequest.get_all_latency_requirements">
+<code class="descname">get_all_latency_requirements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest.get_all_latency_requirements" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.LinearRequest.get_latency_requirement">
+<code class="descname">get_latency_requirement</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest.get_latency_requirement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.LinearRequest.get_out_edge">
+<code class="descname">get_out_edge</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest.get_out_edge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.LinearRequest.get_required_types">
+<code class="descname">get_required_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest.get_required_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.LinearRequest.set_allowed_nodes">
+<code class="descname">set_allowed_nodes</code><span class="sig-paren">(</span><em>i</em>, <em>allowed_nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.LinearRequest.set_allowed_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.datamodel.LinearRequestError">
+<em class="property">exception </em><code class="descclassname">alib.datamodel.</code><code class="descname">LinearRequestError</code><a class="headerlink" href="#alib.datamodel.LinearRequestError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.datamodel.Objective">
+<em class="property">class </em><code class="descclassname">alib.datamodel.</code><code class="descname">Objective</code><a class="headerlink" href="#alib.datamodel.Objective" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="alib.datamodel.Objective.MAX_PROFIT">
+<code class="descname">MAX_PROFIT</code><em class="property"> = 1</em><a class="headerlink" href="#alib.datamodel.Objective.MAX_PROFIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.datamodel.Objective.MIN_COST">
+<code class="descname">MIN_COST</code><em class="property"> = 0</em><a class="headerlink" href="#alib.datamodel.Objective.MIN_COST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.datamodel.Request">
+<em class="property">class </em><code class="descclassname">alib.datamodel.</code><code class="descname">Request</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request" title="Permalink to this definition">¶</a></dt>
+<dd><p>represents a request graph ?</p>
+<dl class="method">
+<dt id="alib.datamodel.Request.add_edge">
+<code class="descname">add_edge</code><span class="sig-paren">(</span><em>tail</em>, <em>head</em>, <em>demand</em>, <em>allowed_edges=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.add_edge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.add_latency_requirement">
+<code class="descname">add_latency_requirement</code><span class="sig-paren">(</span><em>path</em>, <em>latency</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.add_latency_requirement" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds to a specific ‘path’ a latency requirement
+important: the order of edges must be respected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.add_node">
+<code class="descname">add_node</code><span class="sig-paren">(</span><em>i</em>, <em>demand</em>, <em>ntype</em>, <em>allowed_nodes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.add_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_all_latency_requirements">
+<code class="descname">get_all_latency_requirements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_all_latency_requirements" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_allowed_edges">
+<code class="descname">get_allowed_edges</code><span class="sig-paren">(</span><em>ij</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_allowed_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_allowed_nodes">
+<code class="descname">get_allowed_nodes</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_allowed_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_edge_demand">
+<code class="descname">get_edge_demand</code><span class="sig-paren">(</span><em>ij</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_edge_demand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_latency_requirement">
+<code class="descname">get_latency_requirement</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_latency_requirement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_node_demand">
+<code class="descname">get_node_demand</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_node_demand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_nodes_by_type">
+<code class="descname">get_nodes_by_type</code><span class="sig-paren">(</span><em>nt</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_nodes_by_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_required_types">
+<code class="descname">get_required_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_required_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.get_type">
+<code class="descname">get_type</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.get_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.set_allowed_edges">
+<code class="descname">set_allowed_edges</code><span class="sig-paren">(</span><em>ij</em>, <em>allowed_edges</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.set_allowed_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Request.set_allowed_nodes">
+<code class="descname">set_allowed_nodes</code><span class="sig-paren">(</span><em>i</em>, <em>allowed_nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Request.set_allowed_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.datamodel.Scenario">
+<em class="property">class </em><code class="descclassname">alib.datamodel.</code><code class="descname">Scenario</code><span class="sig-paren">(</span><em>name</em>, <em>substrate</em>, <em>requests</em>, <em>objective=0</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Scenario" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.datamodel.Scenario.get_requests">
+<code class="descname">get_requests</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Scenario.get_requests" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Scenario.get_substrate">
+<code class="descname">get_substrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Scenario.get_substrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Scenario.validate_types">
+<code class="descname">validate_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Scenario.validate_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>general check for every request if substrate supports every needed
+type</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.datamodel.Substrate">
+<em class="property">class </em><code class="descclassname">alib.datamodel.</code><code class="descname">Substrate</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>representing a single substrate ( G_s = ( V_s , E_s) )
+Attributes :</p>
+<dl class="method">
+<dt id="alib.datamodel.Substrate.add_edge">
+<code class="descname">add_edge</code><span class="sig-paren">(</span><em>tail</em>, <em>head</em>, <em>latency=1</em>, <em>capacity=1</em>, <em>cost=1</em>, <em>bidirected=True</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.add_edge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.add_node">
+<code class="descname">add_node</code><span class="sig-paren">(</span><em>u</em>, <em>types</em>, <em>capacity</em>, <em>cost</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.add_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.add_type_to_node">
+<code class="descname">add_type_to_node</code><span class="sig-paren">(</span><em>u</em>, <em>node_type</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.add_type_to_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a type to a specific node typelist</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.average_edge_capacity">
+<code class="descname">average_edge_capacity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.average_edge_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.average_node_capacity">
+<code class="descname">average_node_capacity</code><span class="sig-paren">(</span><em>node_type</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.average_node_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_edge_capacity">
+<code class="descname">get_edge_capacity</code><span class="sig-paren">(</span><em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_edge_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_edge_cost">
+<code class="descname">get_edge_cost</code><span class="sig-paren">(</span><em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_edge_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_edge_latency">
+<code class="descname">get_edge_latency</code><span class="sig-paren">(</span><em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_edge_latency" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_node_capacity">
+<code class="descname">get_node_capacity</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_node_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_node_cost">
+<code class="descname">get_node_cost</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_node_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_node_type_capacity">
+<code class="descname">get_node_type_capacity</code><span class="sig-paren">(</span><em>node</em>, <em>ntype</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_node_type_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_node_type_cost">
+<code class="descname">get_node_type_cost</code><span class="sig-paren">(</span><em>node</em>, <em>ntype</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_node_type_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_nodes_by_type">
+<code class="descname">get_nodes_by_type</code><span class="sig-paren">(</span><em>ntype</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_nodes_by_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_path_capacity">
+<code class="descname">get_path_capacity</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_path_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_path_latency">
+<code class="descname">get_path_latency</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_path_latency" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_total_edge_resources">
+<code class="descname">get_total_edge_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_total_edge_resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_total_node_resources">
+<code class="descname">get_total_node_resources</code><span class="sig-paren">(</span><em>node_type</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_total_node_resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.get_types">
+<code class="descname">get_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.get_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.Substrate.set_type_to_node">
+<code class="descname">set_type_to_node</code><span class="sig-paren">(</span><em>u</em>, <em>ntype</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.Substrate.set_type_to_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.datamodel.SubstrateError">
+<em class="property">exception </em><code class="descclassname">alib.datamodel.</code><code class="descname">SubstrateError</code><a class="headerlink" href="#alib.datamodel.SubstrateError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.datamodel.SubstrateX">
+<em class="property">class </em><code class="descclassname">alib.datamodel.</code><code class="descname">SubstrateX</code><span class="sig-paren">(</span><em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.SubstrateX" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.datamodel.SubstrateX.get_valid_edges">
+<code class="descname">get_valid_edges</code><span class="sig-paren">(</span><em>demand</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.SubstrateX.get_valid_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.datamodel.SubstrateX.get_valid_nodes">
+<code class="descname">get_valid_nodes</code><span class="sig-paren">(</span><em>type</em>, <em>demand</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.datamodel.SubstrateX.get_valid_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to alib’s documentation!</a></li>
+      <li>Next: <a href="evaluation.html" title="next chapter"><code class="docutils literal"><span class="pre">alib.evaluation</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/alib/datamodel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/alib/datamodel.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,225 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>randomized_rounding &#8212; vnep-approx  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="randomized_rounding_triumvirate" href="randomized_rounding_triumvirate.html" />
+    <link rel="prev" title="modelcreator_ecg_decomposition" href="modelcreator_ecg_decomposition.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-vnep_approx.randomized_rounding">
+<span id="randomized-rounding"></span><h1><code class="docutils literal"><span class="pre">randomized_rounding</span></code><a class="headerlink" href="#module-vnep_approx.randomized_rounding" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding.RandomizedRounding">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding.</code><code class="descname">RandomizedRounding</code><span class="sig-paren">(</span><em>scenario</em>, <em>gurobi_settings=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRounding" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRounding.ALGORITHM_ID">
+<code class="descname">ALGORITHM_ID</code><em class="property"> = 'RandomizedRounding'</em><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRounding.ALGORITHM_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding.RandomizedRounding.compute_integral_solution">
+<code class="descname">compute_integral_solution</code><span class="sig-paren">(</span><em>onlyloads=True</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRounding.compute_integral_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding.RandomizedRounding.init_model_creator">
+<code class="descname">init_model_creator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRounding.init_model_creator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingError">
+<em class="property">exception </em><code class="descclassname">vnep_approx.randomized_rounding.</code><code class="descname">RandomizedRoundingError</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingMetaData">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding.</code><code class="descname">RandomizedRoundingMetaData</code><span class="sig-paren">(</span><em>substrate_node_resource_names</em>, <em>substrate_edge_resource_names</em>, <em>time_preprocessing</em>, <em>time_optimization</em>, <em>time_postprocessing</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingMetaData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingMetaData.substrate_edge_resource_names">
+<code class="descname">substrate_edge_resource_names</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingMetaData.substrate_edge_resource_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingMetaData.substrate_node_resource_names">
+<code class="descname">substrate_node_resource_names</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingMetaData.substrate_node_resource_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingMetaData.time_optimization">
+<code class="descname">time_optimization</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingMetaData.time_optimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingMetaData.time_postprocessing">
+<code class="descname">time_postprocessing</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingMetaData.time_postprocessing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingMetaData.time_preprocessing">
+<code class="descname">time_preprocessing</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingMetaData.time_preprocessing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingResult">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding.</code><code class="descname">RandomizedRoundingResult</code><span class="sig-paren">(</span><em>solution</em>, <em>temporal_log</em>, <em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingResult.cleanup_references">
+<code class="descname">cleanup_references</code><span class="sig-paren">(</span><em>original_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingResult.cleanup_references" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingResult.get_solution">
+<code class="descname">get_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingResult.get_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionData">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding.</code><code class="descname">RandomizedRoundingSolutionData</code><span class="sig-paren">(</span><em>profit</em>, <em>loadfactor_substrate_nodes</em>, <em>loadfactor_substrate_edges</em>, <em>time_to_round_solution</em>, <em>lost_flow_in_decomposition</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.loadfactor_substrate_edges">
+<code class="descname">loadfactor_substrate_edges</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.loadfactor_substrate_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.loadfactor_substrate_nodes">
+<code class="descname">loadfactor_substrate_nodes</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.loadfactor_substrate_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.lost_flow_in_decomposition">
+<code class="descname">lost_flow_in_decomposition</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.lost_flow_in_decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.profit">
+<code class="descname">profit</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.profit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.time_to_round_solution">
+<code class="descname">time_to_round_solution</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionData.time_to_round_solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionExtract">
+<em class="property">class </em><code class="descclassname">vnep_approx.randomized_rounding.</code><code class="descname">RandomizedRoundingSolutionExtract</code><span class="sig-paren">(</span><em>meta_data</em>, <em>solution_list</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionExtract" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionExtract.meta_data">
+<code class="descname">meta_data</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionExtract.meta_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.randomized_rounding.RandomizedRoundingSolutionExtract.solution_list">
+<code class="descname">solution_list</code><a class="headerlink" href="#vnep_approx.randomized_rounding.RandomizedRoundingSolutionExtract.solution_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="modelcreator_ecg_decomposition.html" title="previous chapter"><code class="docutils literal"><span class="pre">modelcreator_ecg_decomposition</span></code></a></li>
+      <li>Next: <a href="randomized_rounding_triumvirate.html" title="next chapter"><code class="docutils literal"><span class="pre">randomized_rounding_triumvirate</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vnep_approx/randomized_rounding.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/vnep_approx/randomized_rounding.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

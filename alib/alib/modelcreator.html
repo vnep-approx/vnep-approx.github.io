@@ -1,0 +1,572 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>alib.modelcreator &#8212; alib  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="alib.run_experiment" href="run_experiment.html" />
+    <link rel="prev" title="alib.mip" href="mip.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-alib.modelcreator">
+<span id="alib-modelcreator"></span><h1><code class="docutils literal"><span class="pre">alib.modelcreator</span></code><a class="headerlink" href="#module-alib.modelcreator" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">AbstractEmbeddingModelCreator</code><span class="sig-paren">(</span><em>scenario</em>, <em>gurobi_settings=None</em>, <em>optimization_callback=&lt;function gurobi_callback&gt;</em>, <em>lp_output_file=None</em>, <em>potential_iis_filename=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.create_constraints">
+<code class="descname">create_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.create_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.create_constraints_bound_node_and_edge_load_by_capacities">
+<code class="descname">create_constraints_bound_node_and_edge_load_by_capacities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.create_constraints_bound_node_and_edge_load_by_capacities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.create_constraints_other_than_bounding_loads_by_capacities">
+<code class="descname">create_constraints_other_than_bounding_loads_by_capacities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.create_constraints_other_than_bounding_loads_by_capacities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.create_objective">
+<code class="descname">create_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.create_objective" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.create_variables">
+<code class="descname">create_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.create_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.create_variables_embedding_decision">
+<code class="descname">create_variables_embedding_decision</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.create_variables_embedding_decision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.create_variables_other_than_embedding_decision_and_request_load">
+<code class="descname">create_variables_other_than_embedding_decision_and_request_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.create_variables_other_than_embedding_decision_and_request_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.create_variables_request_load">
+<code class="descname">create_variables_request_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.create_variables_request_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.plugin_constraint_embed_all_requests">
+<code class="descname">plugin_constraint_embed_all_requests</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.plugin_constraint_embed_all_requests" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.plugin_objective_maximize_profit">
+<code class="descname">plugin_objective_maximize_profit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.plugin_objective_maximize_profit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.plugin_objective_minimize_cost">
+<code class="descname">plugin_objective_minimize_cost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.plugin_objective_minimize_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractEmbeddingModelCreator.preprocess_input">
+<code class="descname">preprocess_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractEmbeddingModelCreator.preprocess_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.modelcreator.AbstractModelCreator">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">AbstractModelCreator</code><span class="sig-paren">(</span><em>gurobi_settings=None</em>, <em>optimization_callback=&lt;function gurobi_callback&gt;</em>, <em>lp_output_file=None</em>, <em>potential_iis_filename=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.apply_gurobi_settings">
+<code class="descname">apply_gurobi_settings</code><span class="sig-paren">(</span><em>gurobiSettings</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.apply_gurobi_settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.compute_fractional_solution">
+<code class="descname">compute_fractional_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.compute_fractional_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.compute_integral_solution">
+<code class="descname">compute_integral_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.compute_integral_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.create_constraints">
+<code class="descname">create_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.create_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.create_objective">
+<code class="descname">create_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.create_objective" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.create_variables">
+<code class="descname">create_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.create_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.getParam">
+<code class="descname">getParam</code><span class="sig-paren">(</span><em>param</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.getParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.init_model_creator">
+<code class="descname">init_model_creator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.init_model_creator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.post_process_fractional_computation">
+<code class="descname">post_process_fractional_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.post_process_fractional_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.post_process_integral_computation">
+<code class="descname">post_process_integral_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.post_process_integral_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.preprocess_input">
+<code class="descname">preprocess_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.preprocess_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.recover_fractional_solution_from_variables">
+<code class="descname">recover_fractional_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.recover_fractional_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.recover_integral_solution_from_variables">
+<code class="descname">recover_integral_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.recover_integral_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.relax_model">
+<code class="descname">relax_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.relax_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.reset_all_parameters_to_default">
+<code class="descname">reset_all_parameters_to_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.reset_all_parameters_to_default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.reset_gurobi_parameter">
+<code class="descname">reset_gurobi_parameter</code><span class="sig-paren">(</span><em>param</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.reset_gurobi_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AbstractModelCreator.set_gurobi_parameter">
+<code class="descname">set_gurobi_parameter</code><span class="sig-paren">(</span><em>param</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AbstractModelCreator.set_gurobi_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.modelcreator.AlgorithmResult">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">AlgorithmResult</code><a class="headerlink" href="#alib.modelcreator.AlgorithmResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.modelcreator.AlgorithmResult.cleanup_references">
+<code class="descname">cleanup_references</code><span class="sig-paren">(</span><em>original_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AlgorithmResult.cleanup_references" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.AlgorithmResult.get_solution">
+<code class="descname">get_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.AlgorithmResult.get_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.modelcreator.GurobiSettings">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">GurobiSettings</code><span class="sig-paren">(</span><em>mipGap=None</em>, <em>iterationLimit=None</em>, <em>nodeLimit=None</em>, <em>heuristics=None</em>, <em>threads=None</em>, <em>timelimit=None</em>, <em>MIPFocus=None</em>, <em>rootCutPasses=None</em>, <em>cuts=None</em>, <em>BarConvTol=None</em>, <em>OptimalityTol=None</em>, <em>Presolve=None</em>, <em>NodefileStart=None</em>, <em>Method=None</em>, <em>NodeMethod=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiSettings" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.modelcreator.GurobiSettings.setTimeLimit">
+<code class="descname">setTimeLimit</code><span class="sig-paren">(</span><em>newTimeLimit</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiSettings.setTimeLimit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.modelcreator.GurobiStatus">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">GurobiStatus</code><span class="sig-paren">(</span><em>status=1</em>, <em>solCount=0</em>, <em>objValue=1e+100</em>, <em>objBound=1e+100</em>, <em>objGap=1e+100</em>, <em>integralSolution=True</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiStatus" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.CUTOFF">
+<code class="descname">CUTOFF</code><em class="property"> = 6</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.CUTOFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.INFEASIBLE">
+<code class="descname">INFEASIBLE</code><em class="property"> = 3</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.INFEASIBLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.INF_OR_UNBD">
+<code class="descname">INF_OR_UNBD</code><em class="property"> = 4</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.INF_OR_UNBD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.INTERRUPTED">
+<code class="descname">INTERRUPTED</code><em class="property"> = 11</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.INTERRUPTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.IN_PROGRESS">
+<code class="descname">IN_PROGRESS</code><em class="property"> = 14</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.IN_PROGRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.ITERATION_LIMIT">
+<code class="descname">ITERATION_LIMIT</code><em class="property"> = 7</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.ITERATION_LIMIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.LOADED">
+<code class="descname">LOADED</code><em class="property"> = 1</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.LOADED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.NODE_LIMIT">
+<code class="descname">NODE_LIMIT</code><em class="property"> = 8</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.NODE_LIMIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.NUMERIC">
+<code class="descname">NUMERIC</code><em class="property"> = 12</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.NUMERIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.OPTIMAL">
+<code class="descname">OPTIMAL</code><em class="property"> = 2</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.OPTIMAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.SOLUTION_LIMIT">
+<code class="descname">SOLUTION_LIMIT</code><em class="property"> = 10</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.SOLUTION_LIMIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.SUBOPTIMAL">
+<code class="descname">SUBOPTIMAL</code><em class="property"> = 13</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.SUBOPTIMAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.TIME_LIMIT">
+<code class="descname">TIME_LIMIT</code><em class="property"> = 9</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.TIME_LIMIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.GurobiStatus.UNBOUNDED">
+<code class="descname">UNBOUNDED</code><em class="property"> = 5</em><a class="headerlink" href="#alib.modelcreator.GurobiStatus.UNBOUNDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.GurobiStatus.getMIPGap">
+<code class="descname">getMIPGap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiStatus.getMIPGap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.GurobiStatus.getObjectiveBound">
+<code class="descname">getObjectiveBound</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiStatus.getObjectiveBound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.GurobiStatus.getObjectiveValue">
+<code class="descname">getObjectiveValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiStatus.getObjectiveValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.GurobiStatus.hasFeasibleStatus">
+<code class="descname">hasFeasibleStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiStatus.hasFeasibleStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.GurobiStatus.isFeasible">
+<code class="descname">isFeasible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiStatus.isFeasible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.GurobiStatus.isIntegralSolution">
+<code class="descname">isIntegralSolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiStatus.isIntegralSolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.GurobiStatus.isOptimal">
+<code class="descname">isOptimal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.GurobiStatus.isOptimal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.modelcreator.LPData">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">LPData</code><span class="sig-paren">(</span><em>iteration_count</em>, <em>objective_bound</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.LPData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="alib.modelcreator.LPData.iteration_count">
+<code class="descname">iteration_count</code><a class="headerlink" href="#alib.modelcreator.LPData.iteration_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.LPData.objective_bound">
+<code class="descname">objective_bound</code><a class="headerlink" href="#alib.modelcreator.LPData.objective_bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.modelcreator.LogEntry">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">LogEntry</code><span class="sig-paren">(</span><em>globaltime</em>, <em>time_within_gurobi</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.LogEntry" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="alib.modelcreator.LogEntry.data">
+<code class="descname">data</code><a class="headerlink" href="#alib.modelcreator.LogEntry.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.LogEntry.globaltime">
+<code class="descname">globaltime</code><a class="headerlink" href="#alib.modelcreator.LogEntry.globaltime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.LogEntry.time_within_gurobi">
+<code class="descname">time_within_gurobi</code><a class="headerlink" href="#alib.modelcreator.LogEntry.time_within_gurobi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.modelcreator.MIPData">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">MIPData</code><span class="sig-paren">(</span><em>node_count</em>, <em>objective_value</em>, <em>objective_bound</em>, <em>solution_count</em>, <em>callback_code</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.MIPData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="alib.modelcreator.MIPData.callback_code">
+<code class="descname">callback_code</code><a class="headerlink" href="#alib.modelcreator.MIPData.callback_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.MIPData.node_count">
+<code class="descname">node_count</code><a class="headerlink" href="#alib.modelcreator.MIPData.node_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.MIPData.objective_bound">
+<code class="descname">objective_bound</code><a class="headerlink" href="#alib.modelcreator.MIPData.objective_bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.MIPData.objective_value">
+<code class="descname">objective_value</code><a class="headerlink" href="#alib.modelcreator.MIPData.objective_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="alib.modelcreator.MIPData.solution_count">
+<code class="descname">solution_count</code><a class="headerlink" href="#alib.modelcreator.MIPData.solution_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.modelcreator.ModelcreatorError">
+<em class="property">exception </em><code class="descclassname">alib.modelcreator.</code><code class="descname">ModelcreatorError</code><a class="headerlink" href="#alib.modelcreator.ModelcreatorError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="alib.modelcreator.SolutionError">
+<em class="property">exception </em><code class="descclassname">alib.modelcreator.</code><code class="descname">SolutionError</code><a class="headerlink" href="#alib.modelcreator.SolutionError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.modelcreator.TemporalLog">
+<em class="property">class </em><code class="descclassname">alib.modelcreator.</code><code class="descname">TemporalLog</code><span class="sig-paren">(</span><em>log_interval_in_seconds=30.0</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.TemporalLog" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.modelcreator.TemporalLog.add_log_data">
+<code class="descname">add_log_data</code><span class="sig-paren">(</span><em>data</em>, <em>time_within_gurobi</em>, <em>force_new_entry=False</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.TemporalLog.add_log_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.TemporalLog.set_global_start_time">
+<code class="descname">set_global_start_time</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.TemporalLog.set_global_start_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.modelcreator.TemporalLog.set_root_relaxation_entry">
+<code class="descname">set_root_relaxation_entry</code><span class="sig-paren">(</span><em>data</em>, <em>time_within_gurobi</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.TemporalLog.set_root_relaxation_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.modelcreator.TemporalLogError">
+<em class="property">exception </em><code class="descclassname">alib.modelcreator.</code><code class="descname">TemporalLogError</code><a class="headerlink" href="#alib.modelcreator.TemporalLogError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="alib.modelcreator.build_construct_name">
+<code class="descclassname">alib.modelcreator.</code><code class="descname">build_construct_name</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.build_construct_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a construct_name function.</p>
+<p>This is used e.g. to construct the LP variable names.</p>
+<p>The <code class="docutils literal"><span class="pre">spec</span></code> parameter defines a list of argument names of the resulting
+name constructor.</p>
+<p>The resulting name constructor is a function with one positional argument
+(<code class="docutils literal"><span class="pre">name</span></code>) and keyword arguments defined in <code class="docutils literal"><span class="pre">spec</span></code>. The constructed name
+starts with the <code class="docutils literal"><span class="pre">name</span></code> arguments and then contains the given keyword
+arguments in the order of <code class="docutils literal"><span class="pre">spec</span></code>.</p>
+<p>Keyword arguments are formatted as <code class="docutils literal"><span class="pre">&quot;_prefix[value]&quot;</span></code> where the prefix
+is the argument key if the prefix itself is unset or <code class="docutils literal"><span class="pre">None</span></code>. If the
+argument has a custom formatter, it is called on the value.</p>
+<p>Example 1:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">construct_name</span> <span class="o">=</span> <span class="n">build_construct_name</span><span class="p">([</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="s2">&quot;req_name&quot;</span><span class="p">,</span> <span class="s2">&quot;req&quot;</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="s2">&quot;vnode&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s2">&quot;snode&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s2">&quot;vedge&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s2">&quot;sedge&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">construct_name</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s2">&quot;node_mapping&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">req_name</span><span class="o">=</span><span class="s2">&quot;req1&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">vnode</span><span class="o">=</span><span class="s2">&quot;i&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">snode</span><span class="o">=</span><span class="s2">&quot;u&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">&quot;node_mapping_req[req1]_vnode[i]_snode[u]&quot;</span>
+</pre></div>
+</div>
+<p>Example 2:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">construct_name</span> <span class="o">=</span> <span class="n">build_construct_name</span><span class="p">([</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="s2">&quot;bag&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">v</span><span class="p">))),</span>
+<span class="gp">... </span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">construct_name</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">bag</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">}</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">&quot;name_bag[i_j_k]&quot;</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spec</strong> – list of argument names or tuples of <code class="docutils literal"><span class="pre">(argument</span> <span class="pre">name,</span> <span class="pre">prefix,</span> <span class="pre">formatter)</span></code>,
+where trailing <code class="docutils literal"><span class="pre">None</span></code> values can be left out</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">construct_name function</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="alib.modelcreator.construct_name">
+<code class="descclassname">alib.modelcreator.</code><code class="descname">construct_name</code><span class="sig-paren">(</span><em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.construct_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="alib.modelcreator.gurobi_callback">
+<code class="descclassname">alib.modelcreator.</code><code class="descname">gurobi_callback</code><span class="sig-paren">(</span><em>model</em>, <em>where</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.gurobi_callback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="alib.modelcreator.isFeasibleStatus">
+<code class="descclassname">alib.modelcreator.</code><code class="descname">isFeasibleStatus</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.modelcreator.isFeasibleStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="mip.html" title="previous chapter"><code class="docutils literal"><span class="pre">alib.mip</span></code></a></li>
+      <li>Next: <a href="run_experiment.html" title="next chapter"><code class="docutils literal"><span class="pre">alib.run_experiment</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/alib/modelcreator.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/alib/modelcreator.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

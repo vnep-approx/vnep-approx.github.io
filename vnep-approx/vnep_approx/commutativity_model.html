@@ -1,0 +1,726 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>commutativity_model &#8212; vnep-approx  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="extendedcactusgraph" href="extendedcactusgraph.html" />
+    <link rel="prev" title="Welcome to the documentation of vnep-approx!" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-vnep_approx.commutativity_model">
+<span id="commutativity-model"></span><h1><code class="docutils literal"><span class="pre">commutativity_model</span></code><a class="headerlink" href="#module-vnep_approx.commutativity_model" title="Permalink to this headline">¶</a></h1>
+<p>The commutativity model is a generalization of the cactus model.</p>
+<p>In the generalized commutativity model, it must be ensured that node mappings
+are consistent. That means, if there are multiple paths between two request
+nodes, the end node has to be mapped to the same substrate node on all paths.</p>
+<p>For doing that, the model creator (<a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityModelCreator" title="vnep_approx.commutativity_model.CommutativityModelCreator"><code class="xref py py-class docutils literal"><span class="pre">CommutativityModelCreator</span></code></a>) uses a
+labeling algorithm (<a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityLabels" title="vnep_approx.commutativity_model.CommutativityLabels"><code class="xref py py-meth docutils literal"><span class="pre">CommutativityLabels()</span></code></a>).</p>
+<p>In the context of the commutativity model, an <em>end node</em> is the end node of a
+cycle in the DAG, having at least two in-neighbors. The <em>labels</em> of a node or
+an edge are a set of end nodes. A node or edge is labeled with an end node if
+there is a simple cycle (a cycle without repetitions) through the node or edge
+ending in the end node.</p>
+<p>For each edge, the labels are extracted. For each possible mapping of the edge
+labels, a <a class="reference internal" href="#vnep_approx.commutativity_model.EdgeSubLP" title="vnep_approx.commutativity_model.EdgeSubLP"><code class="xref py py-class docutils literal"><span class="pre">EdgeSubLP</span></code></a> is created.</p>
+<p>A mapping of labels to substrate nodes is called <em>commutativity index</em> in
+this context.</p>
+<div class="section" id="labeling-algorithm">
+<h2>Labeling algorithm<a class="headerlink" href="#labeling-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>The labeling is done in four steps in <a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityLabels.create_labels" title="vnep_approx.commutativity_model.CommutativityLabels.create_labels"><code class="xref py py-meth docutils literal"><span class="pre">CommutativityLabels.create_labels()</span></code></a>:</p>
+<ol class="arabic">
+<li><p class="first">Determine the reachable end nodes of every request node.
+Start from leaf nodes going up.</p>
+</li>
+<li><p class="first">Check pairwise overlaps of the children of every request node that has
+multiple children. Identify end nodes that are in at least one overlap of
+the children.</p>
+</li>
+<li><p class="first">Reduce the overlapping sets by removing dominated nodes so that only the
+actual cycle end nodes of simple cycles remain.</p>
+<p>If it is not possible to find a path from a possible start node to an end
+node from the overlapping set without visiting one avoided node, the
+possible start node is not a start node of the end node (dominated). Try
+other nodes from the overlapping set as avoid node.</p>
+</li>
+<li><p class="first">Propagate the labels to all nodes on paths between the start and end nodes.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="lp-model">
+<h2>LP model<a class="headerlink" href="#lp-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">node_mapping_agg</span></code> (req, i, u)</dt>
+<dd>aggregated node mappings</dd>
+<dt><code class="docutils literal"><span class="pre">node_mapping</span></code> (req, i, u, commutativity index)</dt>
+<dd>node mappings</dd>
+</dl>
+<p>In edge sub-LPs:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">node_flow_source</span></code> (req, ij, u, commutativity index)</dt>
+<dd>node flows of the sub-LP sources</dd>
+<dt><code class="docutils literal"><span class="pre">edge_flow</span></code> (req, ij, uv, commutativity index)</dt>
+<dd>edge flows of the substrate copy</dd>
+<dt><code class="docutils literal"><span class="pre">node_flow_sink</span></code> (req, ij, v, commutativity_index)</dt>
+<dd>node flows of the sub-LP sinks</dd>
+</dl>
+</div>
+<div class="section" id="constraints">
+<h3>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">force_node_mapping_for_embedded_request</span></code> (req)</dt>
+<dd>force the embedding of the request</dd>
+<dt><code class="docutils literal"><span class="pre">node_mapping_aggregation</span></code> (req, i, u, bag)</dt>
+<dd>aggregate node mappings</dd>
+<dt><code class="docutils literal"><span class="pre">node_mapping_in_edge_to_bag</span></code> (req, i, u, ji, commutativity index, bag)</dt>
+<dd>connect sink variables of in-edges and node mapping variables</dd>
+<dt><code class="docutils literal"><span class="pre">node_mapping</span></code> (req, i, u, ij, commutativity index)</dt>
+<dd>connect node mapping variables to source variables of out-edges</dd>
+<dt><code class="docutils literal"><span class="pre">track_node_load</span></code> (req, u, type)</dt>
+<dd>track node loads</dd>
+<dt><code class="docutils literal"><span class="pre">track_edge_load</span></code> (req, uv)</dt>
+<dd>track edge loads</dd>
+</dl>
+<p>In edge sub-LPs:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">flow_preservation</span></code> (req, ij, u, commutativity index)</dt>
+<dd>flow preservation in an edge sub-LP</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="vnep_approx.commutativity_model.CommutativityModelError">
+<em class="property">exception </em><code class="descclassname">vnep_approx.commutativity_model.</code><code class="descname">CommutativityModelError</code><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator">
+<em class="property">class </em><code class="descclassname">vnep_approx.commutativity_model.</code><code class="descname">CommutativityModelCreator</code><span class="sig-paren">(</span><em>scenario</em>, <em>gurobi_settings=None</em>, <em>optimization_callback=&lt;function gurobi_callback&gt;</em>, <em>lp_output_file=None</em>, <em>potential_iis_filename=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model creator of the generalized commutativity model.</p>
+<dl class="classmethod">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._add_dag_edges_and_initialize_exploration_queue_with_leaf_nodes">
+<em class="property">classmethod </em><code class="descname">_add_dag_edges_and_initialize_exploration_queue_with_leaf_nodes</code><span class="sig-paren">(</span><em>req</em>, <em>dag_request</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._add_dag_edges_and_initialize_exploration_queue_with_leaf_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Explore the original request and create the edges of the DAG.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>req</strong> – the original request</li>
+<li><strong>dag_request</strong> – the DAG request</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._add_edge_to_dag_request">
+<em class="property">static </em><code class="descname">_add_edge_to_dag_request</code><span class="sig-paren">(</span><em>req</em>, <em>dag_request</em>, <em>edge</em>, <em>is_reversed</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._add_edge_to_dag_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an edge to the DAG.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>req</strong> (<em>datamodel.Request</em>) – the original request</li>
+<li><strong>dag_request</strong> (<em>datamodel.Request</em>) – the DAG request</li>
+<li><strong>edge</strong> – </li>
+<li><strong>is_reversed</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._calculate_substrate_load_for_mapping">
+<code class="descname">_calculate_substrate_load_for_mapping</code><span class="sig-paren">(</span><em>mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._calculate_substrate_load_for_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the substrate load for the mapping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mapping</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a load dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_constraints_track_edge_loads">
+<code class="descname">_create_constraints_track_edge_loads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_constraints_track_edge_loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create constraints to track the edge loads.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_constraints_track_node_loads">
+<code class="descname">_create_constraints_track_node_loads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_constraints_track_node_loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create constraints to track the node loads.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_force_embedding_constraint">
+<code class="descname">_create_force_embedding_constraint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_force_embedding_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a constraint for every request to force the embedding.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_aggregation_constraints">
+<code class="descname">_create_node_mapping_aggregation_constraints</code><span class="sig-paren">(</span><em>req</em>, <em>i</em>, <em>u</em>, <em>bag_key</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_aggregation_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the node mapping aggregation constraints.</p>
+<p>The sum of the node mapping variables of a bag should be equal to the
+aggregated node mapping variable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>req</strong> (<em>datamodel.Request</em>) – the request</li>
+<li><strong>i</strong> – request node</li>
+<li><strong>u</strong> – substrate node of i</li>
+<li><strong>bag_key</strong> – labels of the bag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_constraints">
+<code class="descname">_create_node_mapping_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the node mapping constraints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_constraints_between_in_edges_and_bags">
+<code class="descname">_create_node_mapping_constraints_between_in_edges_and_bags</code><span class="sig-paren">(</span><em>req</em>, <em>i</em>, <em>u</em>, <em>bag_key</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_constraints_between_in_edges_and_bags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the node mapping constraints between the in-edges of a node and the bags (which contain its out-edges).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>req</strong> (<em>datamodel.Request</em>) – the request</li>
+<li><strong>i</strong> – request node</li>
+<li><strong>u</strong> – substrate node of i</li>
+<li><strong>bag_key</strong> – labels of the bag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_constraints_within_bag">
+<code class="descname">_create_node_mapping_constraints_within_bag</code><span class="sig-paren">(</span><em>req</em>, <em>i</em>, <em>u</em>, <em>bag_key</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_constraints_within_bag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the node mapping constraints within a bag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>req</strong> (<em>datamodel.Request</em>) – the request</li>
+<li><strong>i</strong> – request node</li>
+<li><strong>u</strong> – substrate node of i</li>
+<li><strong>bag_key</strong> – labels of the bag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_variables">
+<code class="descname">_create_node_mapping_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_node_mapping_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a node mapping variable for every commutativity index of all
+request nodes. Also initialize the used flows.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_sub_lp_constraints">
+<code class="descname">_create_sub_lp_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_sub_lp_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the Gurobi constraints of every sub-LP.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._create_sub_lp_variables">
+<code class="descname">_create_sub_lp_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._create_sub_lp_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the Gurobi variables of every sub-LP.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._get_valid_substrate_nodes">
+<code class="descname">_get_valid_substrate_nodes</code><span class="sig-paren">(</span><em>req</em>, <em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._get_valid_substrate_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary mapping request nodes to sets of allowed
+and valid substrate nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>req</strong> – </li>
+<li><strong>labels</strong> – iterable of request nodes (usually labels)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._initialize_dag_request">
+<em class="property">classmethod </em><code class="descname">_initialize_dag_request</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._initialize_dag_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a DAG request for the request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>req</strong> – the request</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a rooted DAG request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._make_reversed_substrate">
+<code class="descname">_make_reversed_substrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._make_reversed_substrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a copy of the substrate with all edges reversed.</p>
+<p>All default substrate node and edge properties are preserved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the reversed substrate</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">datamodel.SubstrateX</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator._prepare_edge_sub_lp">
+<code class="descname">_prepare_edge_sub_lp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator._prepare_edge_sub_lp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an <a class="reference internal" href="#vnep_approx.commutativity_model.EdgeSubLP" title="vnep_approx.commutativity_model.EdgeSubLP"><code class="xref py py-class docutils literal"><span class="pre">EdgeSubLP</span></code></a> for every commutativity index of all
+request edges.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.create_constraints_other_than_bounding_loads_by_capacities">
+<code class="descname">create_constraints_other_than_bounding_loads_by_capacities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.create_constraints_other_than_bounding_loads_by_capacities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the Gurobi constraints for the sub-LPs, the node mappings, the
+node and edge loads and the embedding constraints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.create_variables_other_than_embedding_decision_and_request_load">
+<code class="descname">create_variables_other_than_embedding_decision_and_request_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.create_variables_other_than_embedding_decision_and_request_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create node mapping and sub-LP Gurobi variables.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.edge_sub_lp">
+<code class="descname">edge_sub_lp</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.edge_sub_lp" title="Permalink to this definition">¶</a></dt>
+<dd><p>request -&gt; request edge -&gt; commutativity index -&gt; EdgeSubLP</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.extract_request_mapping">
+<code class="descname">extract_request_mapping</code><span class="sig-paren">(</span><em>req</em>, <em>labels</em>, <em>mapping_count</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.extract_request_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract a request mapping.</p>
+<p>This is called by <a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityModelCreator.recover_fractional_solution_from_variables" title="vnep_approx.commutativity_model.CommutativityModelCreator.recover_fractional_solution_from_variables"><code class="xref py py-meth docutils literal"><span class="pre">recover_fractional_solution_from_variables()</span></code></a>
+as long as there is flow remaining. If there is remaining flow,
+this function should find a mapping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>req</strong> (<em>datamodel.Request</em>) – the request</li>
+<li><strong>labels</strong> (<a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityLabels" title="vnep_approx.commutativity_model.CommutativityLabels"><em>CommutativityLabels</em></a>) – the labels of the request</li>
+<li><strong>mapping_count</strong> (<em>int</em>) – the mapping count used for the mapping name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a mapping of the request and the corresponding flow</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(solutions.Mapping, float)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.generate_label_comm_index">
+<code class="descname">generate_label_comm_index</code><span class="sig-paren">(</span><em>req</em>, <em>labels</em>, <em>fixed_mappings=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.generate_label_comm_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a set of labels, yield each possible commutativity index as a list of tuples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>req</strong> (<em>datamodel.Request</em>) – the request</li>
+<li><strong>labels</strong> – a label set</li>
+<li><strong>fixed_mappings</strong> – nodes which should be included in the comm-index with a fixed mapping</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.get_commutativity_index_from_mapping">
+<em class="property">static </em><code class="descname">get_commutativity_index_from_mapping</code><span class="sig-paren">(</span><em>labels</em>, <em>mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.get_commutativity_index_from_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the mapping of the labels that are already fixed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>labels</strong> – </li>
+<li><strong>mapping</strong> (<em>solutions.Mapping</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the commutativity index</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.post_process_fractional_computation">
+<code class="descname">post_process_fractional_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.post_process_fractional_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.post_process_integral_computation">
+<code class="descname">post_process_integral_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.post_process_integral_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.preprocess_input">
+<code class="descname">preprocess_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.preprocess_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create labels and edge sub-LPs for every request.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.recover_fractional_solution_from_variables">
+<code class="descname">recover_fractional_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.recover_fractional_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recover the fractional solution from the Gurobi variables.</p>
+<p>Extract mappings as long as flow is remaining.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.recover_integral_solution_from_variables">
+<code class="descname">recover_integral_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.recover_integral_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityModelCreator.reduce_flow">
+<code class="descname">reduce_flow</code><span class="sig-paren">(</span><em>mapping</em>, <em>used_flow</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityModelCreator.reduce_flow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce the flow on the mapping by increasing the used flows.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mapping</strong> – the full mapping</li>
+<li><strong>used_flow</strong> – the amount of flow to reduce</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.commutativity_model.EdgeSubLP">
+<em class="property">class </em><code class="descclassname">vnep_approx.commutativity_model.</code><code class="descname">EdgeSubLP</code><span class="sig-paren">(</span><em>dag_request</em>, <em>substrate_oriented</em>, <em>ij</em>, <em>commutativity_index</em>, <em>is_reversed_edge</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.EdgeSubLP" title="Permalink to this definition">¶</a></dt>
+<dd><p>An edge sub-LP handles the model variables and constraints and is used to
+extract the mapping.</p>
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.EdgeSubLP.extend_edge_load_constraints">
+<code class="descname">extend_edge_load_constraints</code><span class="sig-paren">(</span><em>load_constraint_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.EdgeSubLP.extend_edge_load_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend the edge load constraints by adding this sub-LP’s edge mapping
+variables.</p>
+<p>The constraint is converted to a <code class="xref py py-class docutils literal"><span class="pre">gurobipy.LinExpr</span></code> and added
+to the model by the <a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityModelCreator" title="vnep_approx.commutativity_model.CommutativityModelCreator"><code class="xref py py-class docutils literal"><span class="pre">CommutativityModelCreator</span></code></a>.</p>
+<p>Node mapping load is handled in the ModelCreator using the (global)
+aggregation layer variables.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>load_constraint_dict</strong> – Dictionary mapping substrate edges to list of tuples of
+coefficients &amp; gurobi variables</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the extended load_constraint_dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.EdgeSubLP.extend_model_constraints">
+<code class="descname">extend_model_constraints</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.EdgeSubLP.extend_model_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend the Gurobi model with the flow preservation constraints of the
+edge sub-LP.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> (<em>gurobipy.Model</em>) – the Gurobi model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.EdgeSubLP.extend_model_variables">
+<code class="descname">extend_model_variables</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.EdgeSubLP.extend_model_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend the Gurobi model with the node and edge flow variables of the
+edge sub-LP.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> (<em>gurobipy.Model</em>) – the Gurobi model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.EdgeSubLP.extract_edge_mapping">
+<code class="descname">extract_edge_mapping</code><span class="sig-paren">(</span><em>partial_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.EdgeSubLP.extract_edge_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the edge mapping of the sub-LP.</p>
+<p>The partial mapping is used to specify the allowed entries (sources)
+and exits (sinks) of the sub-LP.
+The entry node should be fixed in the node mapping in
+<a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityModelCreator.extract_request_mapping" title="vnep_approx.commutativity_model.CommutativityModelCreator.extract_request_mapping"><code class="xref py py-meth docutils literal"><span class="pre">CommutativityModelCreator.extract_request_mapping()</span></code></a> before.
+The exit node can also be fixed if it was contained in the
+commutativity index before. Otherwise all sinks with a remaining flow
+larger than 0 are used.</p>
+<p>The path between the entry and a allowed exit is found by using sub-LP
+edges with a remaining flow larger than 0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>partial_mapping</strong> – the partial global mapping</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the path from an entry to an exit, the exit,
+the minimum flow on the path</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.EdgeSubLP.reduce_flow">
+<code class="descname">reduce_flow</code><span class="sig-paren">(</span><em>mapping</em>, <em>used_flow</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.EdgeSubLP.reduce_flow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce the flow on the edge mapping.</p>
+<p>The flow reduction is done by increasing the used flow of the source,
+the sink and every substrate edge of the path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mapping</strong> – the full mapping</li>
+<li><strong>used_flow</strong> – the amount of flow to reduce</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.commutativity_model.CommutativityLabels">
+<em class="property">class </em><code class="descclassname">vnep_approx.commutativity_model.</code><code class="descname">CommutativityLabels</code><span class="sig-paren">(</span><em>node_labels</em>, <em>dag_request</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityLabels" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityLabels" title="vnep_approx.commutativity_model.CommutativityLabels"><code class="xref py py-class docutils literal"><span class="pre">CommutativityLabels</span></code></a> object contains labels for all nodes of a
+DAG request.</p>
+<p>A node is labeled with the end nodes of all possible cycles containing the
+node.</p>
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityLabels.calculate_edge_label_bags">
+<code class="descname">calculate_edge_label_bags</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityLabels.calculate_edge_label_bags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a request node, group its outgoing edges into bags according
+to overlapping edge labels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i</strong> – request node</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dictionary (node label set -&gt; set of edges in that bag)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="vnep_approx.commutativity_model.CommutativityLabels.create_labels">
+<em class="property">classmethod </em><code class="descname">create_labels</code><span class="sig-paren">(</span><em>dag_request</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityLabels.create_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate labels of a DAG request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dag_request</strong> – the DAG request</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the calculated labels</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#vnep_approx.commutativity_model.CommutativityLabels" title="vnep_approx.commutativity_model.CommutativityLabels">CommutativityLabels</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.commutativity_model.CommutativityLabels.get_edge_labels">
+<code class="descname">get_edge_labels</code><span class="sig-paren">(</span><em>ij</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.commutativity_model.CommutativityLabels.get_edge_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the labels of the request edge ij.</p>
+<p>The labels of ij are the intersection of the labels of i and j.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ij</strong> – the edge</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the labels of ij</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">commutativity_model</span></code></a><ul>
+<li><a class="reference internal" href="#labeling-algorithm">Labeling algorithm</a></li>
+<li><a class="reference internal" href="#lp-model">LP model</a><ul>
+<li><a class="reference internal" href="#variables">Variables</a></li>
+<li><a class="reference internal" href="#constraints">Constraints</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to the documentation of vnep-approx!</a></li>
+      <li>Next: <a href="extendedcactusgraph.html" title="next chapter"><code class="docutils literal"><span class="pre">extendedcactusgraph</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vnep_approx/commutativity_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/vnep_approx/commutativity_model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

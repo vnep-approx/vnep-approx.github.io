@@ -1,0 +1,556 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>alib.scenariogeneration &#8212; alib  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="alib.solutions" href="solutions.html" />
+    <link rel="prev" title="alib.run_experiment" href="run_experiment.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-alib.scenariogeneration">
+<span id="alib-scenariogeneration"></span><h1><code class="docutils literal"><span class="pre">alib.scenariogeneration</span></code><a class="headerlink" href="#module-alib.scenariogeneration" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="alib.scenariogeneration.AbstractNodeMappingRestrictionGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">AbstractNodeMappingRestrictionGenerator</code><span class="sig-paren">(</span><em>logger</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractNodeMappingRestrictionGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.scenariogeneration.AbstractNodeMappingRestrictionGenerator.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>scenario_parameters</em>, <em>scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractNodeMappingRestrictionGenerator.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractNodeMappingRestrictionGenerator.generate_and_apply_restrictions">
+<code class="descname">generate_and_apply_restrictions</code><span class="sig-paren">(</span><em>scenario</em>, <em>raw_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractNodeMappingRestrictionGenerator.generate_and_apply_restrictions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractNodeMappingRestrictionGenerator.generate_restrictions_single_request">
+<code class="descname">generate_restrictions_single_request</code><span class="sig-paren">(</span><em>req</em>, <em>substrate</em>, <em>raw_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractNodeMappingRestrictionGenerator.generate_restrictions_single_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.AbstractProfitCalculator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">AbstractProfitCalculator</code><span class="sig-paren">(</span><em>logger</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractProfitCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for the profit generation task.</p>
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractProfitCalculator.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>scenario_parameters</em>, <em>scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractProfitCalculator.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractProfitCalculator.generate_and_apply_profits">
+<code class="descname">generate_and_apply_profits</code><span class="sig-paren">(</span><em>scenario</em>, <em>raw_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractProfitCalculator.generate_and_apply_profits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.AbstractRequestGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">AbstractRequestGenerator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractRequestGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for the request generation task. Subclasses should implement the
+generate_request method defined below, which should return an object of the
+type datamodel.Request.</p>
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractRequestGenerator.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>scenario_parameters</em>, <em>scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractRequestGenerator.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractRequestGenerator.generate_request">
+<code class="descname">generate_request</code><span class="sig-paren">(</span><em>name</em>, <em>raw_parameters</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractRequestGenerator.generate_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractRequestGenerator.generate_request_dictionary">
+<code class="descname">generate_request_dictionary</code><span class="sig-paren">(</span><em>raw_parameters</em>, <em>substrate</em>, <em>base_name='vnet_{id}'</em>, <em>normalize=False</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractRequestGenerator.generate_request_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractRequestGenerator.generate_request_list">
+<code class="descname">generate_request_list</code><span class="sig-paren">(</span><em>raw_parameters</em>, <em>substrate</em>, <em>base_name='vnet_{id}'</em>, <em>normalize=False</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractRequestGenerator.generate_request_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractRequestGenerator.normalize_resource_footprint">
+<code class="descname">normalize_resource_footprint</code><span class="sig-paren">(</span><em>raw_parameters</em>, <em>requests</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractRequestGenerator.normalize_resource_footprint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.AbstractRequestGenerator.verify_substrate_has_sufficient_capacity">
+<code class="descname">verify_substrate_has_sufficient_capacity</code><span class="sig-paren">(</span><em>request</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.AbstractRequestGenerator.verify_substrate_has_sufficient_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.CactusRequestGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">CactusRequestGenerator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.CactusRequestGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate request topologies with the cactus graph property.</p>
+<p>First, a random tree is generated according to the “layers” and
+“branching_distribution” scenario parameters.</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">layers</span></code>: an integer giving the depth of the tree</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">branching_distribution</span></code>: a list of floating point numbers,
+which specifies a probability distribution for the number of children:
+If branching_distribution[i] = p_i, then each node in the tree has
+probability p_i of having i many children.
+The elements of the branching_distribution list must add up to 1.0.</p>
+<p>Warning: if a non-zero value is assigned to the first list element of the branching
+distribution, the tree depth may be reduced and the request graph may degenerate to a single node</p>
+</li>
+</ul>
+<p>After generating the tree, edges are randomly added to the request graph in a way that
+maintains the cactus property according to the “max_cycles” and “probability” parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">max_cycles</span></code>: An integer giving a hard upper limit on the number of cycles that may be included</li>
+<li><code class="docutils literal"><span class="pre">probability</span></code>: The algorithm repeatedly picks two random nodes from a subtree of the graph
+and draws an edge between them according to this parameter.</li>
+</ul>
+<p>To estimate the number of nodes/edges (i.e. the resource footprint), a number of
+graphs is generated according to the “iterations” parameter.</p>
+<dl class="attribute">
+<dt id="alib.scenariogeneration.CactusRequestGenerator.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['probability', 'number_of_requests', 'node_resource_factor', 'edge_resource_factor', 'min_number_of_nodes', 'max_number_of_nodes', 'branching_distribution', 'layers', 'max_cycles', 'iterations', 'fix_root_mapping', 'fix_leaf_mapping', 'normalize']</em><a class="headerlink" href="#alib.scenariogeneration.CactusRequestGenerator.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.scenariogeneration.CactusRequestGenerator.ROOT">
+<code class="descname">ROOT</code><em class="property"> = 'root'</em><a class="headerlink" href="#alib.scenariogeneration.CactusRequestGenerator.ROOT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.CactusRequestGenerator.expected_number_of_nodes_in_tree">
+<code class="descname">expected_number_of_nodes_in_tree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.CactusRequestGenerator.expected_number_of_nodes_in_tree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.CactusRequestGenerator.generate_request">
+<code class="descname">generate_request</code><span class="sig-paren">(</span><em>name</em>, <em>raw_parameters</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.CactusRequestGenerator.generate_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.scenariogeneration.ExperimentSpecificationError">
+<em class="property">exception </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">ExperimentSpecificationError</code><a class="headerlink" href="#alib.scenariogeneration.ExperimentSpecificationError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.ExponentialRequestGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">ExponentialRequestGenerator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ExponentialRequestGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate requests, where the number of nodes is sampled from an exponential distribution.
+Edges are connected at random according to the “probability” parameter.</p>
+<p>Warning: Request graphs may have multiple components.</p>
+<dl class="attribute">
+<dt id="alib.scenariogeneration.ExponentialRequestGenerator.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['number_of_requests', 'min_number_of_nodes', 'max_number_of_nodes', 'probability', 'node_resource_factor', 'edge_resource_factor', 'normalize']</em><a class="headerlink" href="#alib.scenariogeneration.ExponentialRequestGenerator.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.ExponentialRequestGenerator.generate_request">
+<code class="descname">generate_request</code><span class="sig-paren">(</span><em>name</em>, <em>raw_parameters</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ExponentialRequestGenerator.generate_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.NeighborhoodSearchRestrictionGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">NeighborhoodSearchRestrictionGenerator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.NeighborhoodSearchRestrictionGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate node placement restrictions by traversing the substrate in a breadth-first-search, starting
+at a randomly chosen “center” node. Whenever a substrate node supporting the node type is encountered,
+it is added to the “allowed_nodes” list.</p>
+<p>The number of allowed nodes is sampled from an exponential distribution with the mean “potential_nodes_factor”.</p>
+<p>potential_nodes_factor: Floating point number between 0.0 and 1.0.</p>
+<dl class="attribute">
+<dt id="alib.scenariogeneration.NeighborhoodSearchRestrictionGenerator.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['potential_nodes_factor']</em><a class="headerlink" href="#alib.scenariogeneration.NeighborhoodSearchRestrictionGenerator.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.NeighborhoodSearchRestrictionGenerator.generate_restrictions_single_request">
+<code class="descname">generate_restrictions_single_request</code><span class="sig-paren">(</span><em>req</em>, <em>substrate</em>, <em>raw_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.NeighborhoodSearchRestrictionGenerator.generate_restrictions_single_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.OptimalEmbeddingProfitCalculator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">OptimalEmbeddingProfitCalculator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.OptimalEmbeddingProfitCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate profits for all new requests in a scenario.</p>
+<p>The profit for each request is the cost of its optimal embedding
+in the empty substrate, multiplied by the profit_factor parameter.</p>
+<dl class="attribute">
+<dt id="alib.scenariogeneration.OptimalEmbeddingProfitCalculator.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['profit_factor', 'timelimit']</em><a class="headerlink" href="#alib.scenariogeneration.OptimalEmbeddingProfitCalculator.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.OptimalEmbeddingProfitCalculator.generate_and_apply_profits">
+<code class="descname">generate_and_apply_profits</code><span class="sig-paren">(</span><em>scenario</em>, <em>raw_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.OptimalEmbeddingProfitCalculator.generate_and_apply_profits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.RandomEmbeddingProfitCalculator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">RandomEmbeddingProfitCalculator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.RandomEmbeddingProfitCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate profits for all new requests in a scenario.</p>
+<p>The profit for each request is the average cost of random embeddings
+in the empty substrate, multiplied by the “profit_factor” parameter.</p>
+<p>The “iterations” parameter defines the number of random embeddings.</p>
+<dl class="attribute">
+<dt id="alib.scenariogeneration.RandomEmbeddingProfitCalculator.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['profit_factor', 'iterations']</em><a class="headerlink" href="#alib.scenariogeneration.RandomEmbeddingProfitCalculator.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.RandomEmbeddingProfitCalculator.generate_and_apply_profits">
+<code class="descname">generate_and_apply_profits</code><span class="sig-paren">(</span><em>scenario</em>, <em>raw_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.RandomEmbeddingProfitCalculator.generate_and_apply_profits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.scenariogeneration.RequestGenerationError">
+<em class="property">exception </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">RequestGenerationError</code><a class="headerlink" href="#alib.scenariogeneration.RequestGenerationError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.ScenarioGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">ScenarioGenerator</code><span class="sig-paren">(</span><em>threads=1</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenarioGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.scenariogeneration.ScenarioGenerator.fill_reverselookup_dict">
+<code class="descname">fill_reverselookup_dict</code><span class="sig-paren">(</span><em>sp</em>, <em>currentindex</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenarioGenerator.fill_reverselookup_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.ScenarioGenerator.generate_scenarios">
+<code class="descname">generate_scenarios</code><span class="sig-paren">(</span><em>scenario_parameter_space</em>, <em>repetition=1</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenarioGenerator.generate_scenarios" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.ScenarioGenerator.init_reverselookup_dict">
+<code class="descname">init_reverselookup_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenarioGenerator.init_reverselookup_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.scenariogeneration.ScenarioGeneratorError">
+<em class="property">exception </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">ScenarioGeneratorError</code><a class="headerlink" href="#alib.scenariogeneration.ScenarioGeneratorError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.ScenarioParameterContainer">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">ScenarioParameterContainer</code><span class="sig-paren">(</span><em>scenario_parameter_room</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenarioParameterContainer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.scenariogeneration.ScenarioParameterContainer.generate_all_scenario_parameter_combinations">
+<code class="descname">generate_all_scenario_parameter_combinations</code><span class="sig-paren">(</span><em>repetition=1</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenarioParameterContainer.generate_all_scenario_parameter_combinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dictionary representing the parameter space of an experiment,
+this function generates a list of parameter dictionaries, each of which
+can be used by the ScenarioGenerator to generate a single scenario.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>repetition</strong> – how many times each scenario will be builded (Default value = 1)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of dictionaries, where each dictionary specifies a single scenario
+{generation_task -&gt; {strategy_name -&gt; {class -&gt; {parameter -&gt; [values]}}}}</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.ScenarioParameterContainer.make_values_immutable">
+<code class="descname">make_values_immutable</code><span class="sig-paren">(</span><em>raw_parameter</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenarioParameterContainer.make_values_immutable" title="Permalink to this definition">¶</a></dt>
+<dd><p>This converts list parameters to tuples, e.g.
+branching_distribution: [[0.0, 0.5, 0.5]] becomes
+branching_distribution: [(0.0, 0.5, 0.5)]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>raw_parameter</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.scenariogeneration.ScenarioParameterError">
+<em class="property">exception </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">ScenarioParameterError</code><a class="headerlink" href="#alib.scenariogeneration.ScenarioParameterError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.ScenariogenerationTask">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">ScenariogenerationTask</code><span class="sig-paren">(</span><em>logger</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenariogenerationTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all steps in the scenario generation process.
+Currently it just handles the instantiation of the logger.</p>
+<dl class="method">
+<dt id="alib.scenariogeneration.ScenariogenerationTask.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>scenario_parameters</em>, <em>scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ScenariogenerationTask.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply this task to the scenario object, given the scenario_parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scenario_parameters</strong> – </li>
+<li><strong>scenario</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.ServiceChainGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">ServiceChainGenerator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ServiceChainGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a Request that represents a Service Chain. The Request consists of
+a chain connecting a source “s” and target “t”, with additional edges added
+at random between the intermediate nodes, according to the “probability” scenario
+parameter. If “probability” is set to 0.0, a datamodel.LinearRequest object will be
+generated instead.</p>
+<p>The source and target nodes are each mapped to a single substrate node.</p>
+<p>Additionally, a latency constraint is generated for the chain connecting the source and target nodes.
+The maximum latency is obtained by multiplying the latency_factor parameter with the length of the shortest-path
+embedding.</p>
+<dl class="attribute">
+<dt id="alib.scenariogeneration.ServiceChainGenerator.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['number_of_requests', 'min_number_of_nodes', 'max_number_of_nodes', 'probability', 'latency_factor', 'node_resource_factor', 'edge_resource_factor']</em><a class="headerlink" href="#alib.scenariogeneration.ServiceChainGenerator.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.scenariogeneration.ServiceChainGenerator.SOURCE_NODE">
+<code class="descname">SOURCE_NODE</code><em class="property"> = 's'</em><a class="headerlink" href="#alib.scenariogeneration.ServiceChainGenerator.SOURCE_NODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="alib.scenariogeneration.ServiceChainGenerator.TARGET_NODE">
+<code class="descname">TARGET_NODE</code><em class="property"> = 't'</em><a class="headerlink" href="#alib.scenariogeneration.ServiceChainGenerator.TARGET_NODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.ServiceChainGenerator.generate_request">
+<code class="descname">generate_request</code><span class="sig-paren">(</span><em>name</em>, <em>raw_parameters</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.ServiceChainGenerator.generate_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.scenariogeneration.SubstrateReaderError">
+<em class="property">exception </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">SubstrateReaderError</code><a class="headerlink" href="#alib.scenariogeneration.SubstrateReaderError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.TopologyZooReader">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">TopologyZooReader</code><span class="sig-paren">(</span><em>path='/home/alex/inet/vnep/alib/alib/data/topologyZoo'</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.TopologyZooReader" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="alib.scenariogeneration.TopologyZooReader.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['topology', 'node_types', 'edge_capacity', 'node_cost_factor', 'node_capacity', 'node_type_distribution']</em><a class="headerlink" href="#alib.scenariogeneration.TopologyZooReader.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.TopologyZooReader.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>scenario_parameters</em>, <em>scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.TopologyZooReader.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.TopologyZooReader.read_from_yaml">
+<code class="descname">read_from_yaml</code><span class="sig-paren">(</span><em>raw_parameters</em>, <em>include_location=False</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.TopologyZooReader.read_from_yaml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.TopologyZooReader.read_substrate">
+<code class="descname">read_substrate</code><span class="sig-paren">(</span><em>raw_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.TopologyZooReader.read_substrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.UniformEmbeddingRestrictionGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">UniformEmbeddingRestrictionGenerator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.UniformEmbeddingRestrictionGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate node placement restrictions by randomly choosing a fixed ratio of the
+substrate nodes with suitable type. At least one substrate node is always chosen.
+If the request node dictionary of a node contains the parameter “number_of_allowed_nodes”,
+then this number is used instead.</p>
+<p>Example: Assuming a substrate with 20 nodes, 10 of which can support type “t1” and potential_nodes_factor=0.4.
+Then, each request node of type “t1” is mapped to a random sample of 4 out of the 10 supporting nodes.</p>
+<p>potential_nodes_factor: Floating point number between 0.0 and 1.0.</p>
+<dl class="attribute">
+<dt id="alib.scenariogeneration.UniformEmbeddingRestrictionGenerator.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['potential_nodes_factor']</em><a class="headerlink" href="#alib.scenariogeneration.UniformEmbeddingRestrictionGenerator.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.UniformEmbeddingRestrictionGenerator.generate_restrictions_single_request">
+<code class="descname">generate_restrictions_single_request</code><span class="sig-paren">(</span><em>req</em>, <em>substrate</em>, <em>raw_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.UniformEmbeddingRestrictionGenerator.generate_restrictions_single_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.scenariogeneration.UniformRequestGenerator">
+<em class="property">class </em><code class="descclassname">alib.scenariogeneration.</code><code class="descname">UniformRequestGenerator</code><span class="sig-paren">(</span><em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.UniformRequestGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate requests, where the number of nodes is sampled from a uniform distribution.
+Edges are connected at random according to the “probability” parameter.</p>
+<p>Warning: Request graphs may have multiple components.</p>
+<dl class="attribute">
+<dt id="alib.scenariogeneration.UniformRequestGenerator.EXPECTED_PARAMETERS">
+<code class="descname">EXPECTED_PARAMETERS</code><em class="property"> = ['number_of_requests', 'min_number_of_nodes', 'max_number_of_nodes', 'probability', 'variability', 'node_resource_factor', 'edge_resource_factor', 'normalize']</em><a class="headerlink" href="#alib.scenariogeneration.UniformRequestGenerator.EXPECTED_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.scenariogeneration.UniformRequestGenerator.generate_request">
+<code class="descname">generate_request</code><span class="sig-paren">(</span><em>name</em>, <em>raw_parameters</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.UniformRequestGenerator.generate_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="alib.scenariogeneration.build_scenario">
+<code class="descclassname">alib.scenariogeneration.</code><code class="descname">build_scenario</code><span class="sig-paren">(</span><em>i_sp_tup</em>, <em>maxrep=1</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.build_scenario" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a single scenario based on the scenario parameters.</p>
+<p>This function performs the scenario generation steps in the correct order:</p>
+<ol class="arabic simple">
+<li>generation of the substrate topologies (including capacities) from the topology zoo</li>
+<li>generation of the request topologies (including resource demands)</li>
+<li>(optional) restrict the allowed node mappings</li>
+<li>(optional) calculate each request’s profit. The scenario’s objective will
+be set to profit maximization if a profit calculator is given, otherwise it
+defaults to cost minimization.</li>
+</ol>
+<p>The function also creates a separate logger to maintain readability when the scenario
+generation is done by multiple threads.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_sp_tup</strong> – Tuple containing the index of the scenario as first, and the scenario parameters
+as returned by ScenarioParameterContainer.generate_all_scenario_parameter_combinations
+as second element.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="alib.scenariogeneration.generate_pickle_from_yml">
+<code class="descclassname">alib.scenariogeneration.</code><code class="descname">generate_pickle_from_yml</code><span class="sig-paren">(</span><em>parameter_file</em>, <em>scenario_out_pickle</em>, <em>threads=1</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.generate_pickle_from_yml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="alib.scenariogeneration.haversine">
+<code class="descclassname">alib.scenariogeneration.</code><code class="descname">haversine</code><span class="sig-paren">(</span><em>lon1</em>, <em>lat1</em>, <em>lon2</em>, <em>lat2</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.haversine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the great circle distance between two points
+on the earth (specified in decimal degrees)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="alib.scenariogeneration.verify_completeness_of_scenario_parameters">
+<code class="descclassname">alib.scenariogeneration.</code><code class="descname">verify_completeness_of_scenario_parameters</code><span class="sig-paren">(</span><em>scenario_parameter_space</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.scenariogeneration.verify_completeness_of_scenario_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="run_experiment.html" title="previous chapter"><code class="docutils literal"><span class="pre">alib.run_experiment</span></code></a></li>
+      <li>Next: <a href="solutions.html" title="next chapter"><code class="docutils literal"><span class="pre">alib.solutions</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/alib/scenariogeneration.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/alib/scenariogeneration.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

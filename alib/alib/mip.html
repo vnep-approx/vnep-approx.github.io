@@ -1,0 +1,173 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>alib.mip &#8212; alib  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="alib.modelcreator" href="modelcreator.html" />
+    <link rel="prev" title="alib.evaluation" href="evaluation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-alib.mip">
+<span id="alib-mip"></span><h1><code class="docutils literal"><span class="pre">alib.mip</span></code><a class="headerlink" href="#module-alib.mip" title="Permalink to this headline">¶</a></h1>
+<dl class="exception">
+<dt id="alib.mip.ClassicMCFError">
+<em class="property">exception </em><code class="descclassname">alib.mip.</code><code class="descname">ClassicMCFError</code><a class="headerlink" href="#alib.mip.ClassicMCFError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.mip.ClassicMCFModel">
+<em class="property">class </em><code class="descclassname">alib.mip.</code><code class="descname">ClassicMCFModel</code><span class="sig-paren">(</span><em>scenario</em>, <em>gurobi_settings=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="alib.mip.ClassicMCFModel.ALGORITHM_ID">
+<code class="descname">ALGORITHM_ID</code><em class="property"> = 'ClassicMCF'</em><a class="headerlink" href="#alib.mip.ClassicMCFModel.ALGORITHM_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.create_constraints_compute_edge_load">
+<code class="descname">create_constraints_compute_edge_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.create_constraints_compute_edge_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.create_constraints_compute_node_load">
+<code class="descname">create_constraints_compute_node_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.create_constraints_compute_node_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.create_constraints_flow_preservation_and_induction">
+<code class="descname">create_constraints_flow_preservation_and_induction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.create_constraints_flow_preservation_and_induction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.create_constraints_node_mapping">
+<code class="descname">create_constraints_node_mapping</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.create_constraints_node_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.create_constraints_other_than_bounding_loads_by_capacities">
+<code class="descname">create_constraints_other_than_bounding_loads_by_capacities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.create_constraints_other_than_bounding_loads_by_capacities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.create_variables_other_than_embedding_decision_and_request_load">
+<code class="descname">create_variables_other_than_embedding_decision_and_request_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.create_variables_other_than_embedding_decision_and_request_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.fix_mapping_variables_according_to_integral_solution">
+<code class="descname">fix_mapping_variables_according_to_integral_solution</code><span class="sig-paren">(</span><em>solution</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.fix_mapping_variables_according_to_integral_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.obtain_mapping">
+<code class="descname">obtain_mapping</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.obtain_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.post_process_integral_computation">
+<code class="descname">post_process_integral_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.post_process_integral_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.mip.ClassicMCFModel.recover_integral_solution_from_variables">
+<code class="descname">recover_integral_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFModel.recover_integral_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.mip.ClassicMCFResult">
+<em class="property">class </em><code class="descclassname">alib.mip.</code><code class="descname">ClassicMCFResult</code><span class="sig-paren">(</span><em>solution</em>, <em>temporal_log</em>, <em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.mip.ClassicMCFResult.get_solution">
+<code class="descname">get_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.mip.ClassicMCFResult.get_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="evaluation.html" title="previous chapter"><code class="docutils literal"><span class="pre">alib.evaluation</span></code></a></li>
+      <li>Next: <a href="modelcreator.html" title="next chapter"><code class="docutils literal"><span class="pre">alib.modelcreator</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/alib/mip.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/alib/mip.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

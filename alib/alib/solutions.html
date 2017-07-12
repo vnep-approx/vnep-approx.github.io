@@ -1,0 +1,236 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>alib.solutions &#8212; alib  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="alib.suitable_substrates" href="suitable_substrates.html" />
+    <link rel="prev" title="alib.scenariogeneration" href="scenariogeneration.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-alib.solutions">
+<span id="alib-solutions"></span><h1><code class="docutils literal"><span class="pre">alib.solutions</span></code><a class="headerlink" href="#module-alib.solutions" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="alib.solutions.FractionalScenarioSolution">
+<em class="property">class </em><code class="descclassname">alib.solutions.</code><code class="descname">FractionalScenarioSolution</code><span class="sig-paren">(</span><em>name</em>, <em>scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.FractionalScenarioSolution" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.solutions.FractionalScenarioSolution.add_mapping">
+<code class="descname">add_mapping</code><span class="sig-paren">(</span><em>req</em>, <em>mapping</em>, <em>flow</em>, <em>load</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.FractionalScenarioSolution.add_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.FractionalScenarioSolution.capacity_check">
+<code class="descname">capacity_check</code><span class="sig-paren">(</span><em>request</em>, <em>mapping</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.FractionalScenarioSolution.capacity_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if demand of all request nodes and edges is fullfilled by
+substrate capacity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.FractionalScenarioSolution.latency_check">
+<code class="descname">latency_check</code><span class="sig-paren">(</span><em>request</em>, <em>mapping</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.FractionalScenarioSolution.latency_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.FractionalScenarioSolution.type_check">
+<code class="descname">type_check</code><span class="sig-paren">(</span><em>request</em>, <em>mapping</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.FractionalScenarioSolution.type_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if requested types are in supported types from substrate</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.FractionalScenarioSolution.validate_solution">
+<code class="descname">validate_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.FractionalScenarioSolution.validate_solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>validates types, latency and capacity for each request and given
+list of mappings in scenario</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.solutions.IntegralScenarioSolution">
+<em class="property">class </em><code class="descclassname">alib.solutions.</code><code class="descname">IntegralScenarioSolution</code><span class="sig-paren">(</span><em>name</em>, <em>scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.IntegralScenarioSolution" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.solutions.IntegralScenarioSolution.add_mapping">
+<code class="descname">add_mapping</code><span class="sig-paren">(</span><em>req</em>, <em>mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.IntegralScenarioSolution.add_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.IntegralScenarioSolution.capacity_check">
+<code class="descname">capacity_check</code><span class="sig-paren">(</span><em>request</em>, <em>mapping</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.IntegralScenarioSolution.capacity_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if demand of all request nodes and edges is fullfilled by
+substrate capacity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.IntegralScenarioSolution.latency_check">
+<code class="descname">latency_check</code><span class="sig-paren">(</span><em>request</em>, <em>mapping</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.IntegralScenarioSolution.latency_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.IntegralScenarioSolution.type_check">
+<code class="descname">type_check</code><span class="sig-paren">(</span><em>request</em>, <em>mapping</em>, <em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.IntegralScenarioSolution.type_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if requested types are in supported types from substrate</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.IntegralScenarioSolution.validate_solution">
+<code class="descname">validate_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.IntegralScenarioSolution.validate_solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>validates types, latency and capacity for each request and given
+mapping in scenario</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.IntegralScenarioSolution.validate_solution_fulfills_capacity">
+<code class="descname">validate_solution_fulfills_capacity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.IntegralScenarioSolution.validate_solution_fulfills_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="alib.solutions.Mapping">
+<em class="property">class </em><code class="descclassname">alib.solutions.</code><code class="descname">Mapping</code><span class="sig-paren">(</span><em>name</em>, <em>request</em>, <em>substrate</em>, <em>is_embedded</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.Mapping" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.solutions.Mapping.get_mapping_of_node">
+<code class="descname">get_mapping_of_node</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.Mapping.get_mapping_of_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.Mapping.lookup_request">
+<code class="descname">lookup_request</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.Mapping.lookup_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a substrate node u - return the mapped request node else None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.Mapping.map_edge">
+<code class="descname">map_edge</code><span class="sig-paren">(</span><em>ve</em>, <em>ses</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.Mapping.map_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>maps a virtual edge ve of a request to a path(multiple edges) se’s of a
+substrate</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.Mapping.map_node">
+<code class="descname">map_node</code><span class="sig-paren">(</span><em>i</em>, <em>u</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.Mapping.map_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.solutions.MappingError">
+<em class="property">exception </em><code class="descclassname">alib.solutions.</code><code class="descname">MappingError</code><a class="headerlink" href="#alib.solutions.MappingError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="alib.solutions.ScenarioSolutionStorage">
+<em class="property">class </em><code class="descclassname">alib.solutions.</code><code class="descname">ScenarioSolutionStorage</code><span class="sig-paren">(</span><em>scenario_parameter_container</em>, <em>execution_parameter_container</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.ScenarioSolutionStorage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="alib.solutions.ScenarioSolutionStorage.add_solution">
+<code class="descname">add_solution</code><span class="sig-paren">(</span><em>algorithm_id</em>, <em>scenario_id</em>, <em>execution_id</em>, <em>solution</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.ScenarioSolutionStorage.add_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.ScenarioSolutionStorage.get_solutions_by_algorithm">
+<code class="descname">get_solutions_by_algorithm</code><span class="sig-paren">(</span><em>algorithm_id</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.ScenarioSolutionStorage.get_solutions_by_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.ScenarioSolutionStorage.get_solutions_by_scenario_index">
+<code class="descname">get_solutions_by_scenario_index</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.ScenarioSolutionStorage.get_solutions_by_scenario_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="alib.solutions.ScenarioSolutionStorage.retrieve_scenario_parameters_for_index">
+<code class="descname">retrieve_scenario_parameters_for_index</code><span class="sig-paren">(</span><em>scenario_index</em><span class="sig-paren">)</span><a class="headerlink" href="#alib.solutions.ScenarioSolutionStorage.retrieve_scenario_parameters_for_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="alib.solutions.SolutionStorageError">
+<em class="property">exception </em><code class="descclassname">alib.solutions.</code><code class="descname">SolutionStorageError</code><a class="headerlink" href="#alib.solutions.SolutionStorageError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="scenariogeneration.html" title="previous chapter"><code class="docutils literal"><span class="pre">alib.scenariogeneration</span></code></a></li>
+      <li>Next: <a href="suitable_substrates.html" title="next chapter"><code class="docutils literal"><span class="pre">alib.suitable_substrates</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/alib/solutions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/alib/solutions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

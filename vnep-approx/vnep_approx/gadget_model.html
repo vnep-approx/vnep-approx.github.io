@@ -1,0 +1,589 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>gadget_model &#8212; vnep-approx  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="modelcreator_decomposition" href="modelcreator_decomposition.html" />
+    <link rel="prev" title="extendedgraph" href="extendedgraph.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-vnep_approx.gadget_model">
+<span id="gadget-model"></span><h1><code class="docutils literal"><span class="pre">gadget_model</span></code><a class="headerlink" href="#module-vnep_approx.gadget_model" title="Permalink to this headline">¶</a></h1>
+<p>The decision cactus model consists of multiple gadgets.</p>
+<dl class="class">
+<dt id="vnep_approx.gadget_model.AbstractGadget">
+<em class="property">class </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">AbstractGadget</code><span class="sig-paren">(</span><em>name</em>, <em>request</em>, <em>in_node</em>, <em>out_nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract gadget used by <a class="reference internal" href="#vnep_approx.gadget_model.GadgetContainerRequest" title="vnep_approx.gadget_model.GadgetContainerRequest"><code class="xref py py-class docutils literal"><span class="pre">GadgetContainerRequest</span></code></a>.</p>
+<p>Gadgets are connected by sharing a common node. Nodes that are designated
+to be used by multiple gadgets are called interface nodes.</p>
+<p>A gadget has exactly one in-node and one or multiple out-nodes.</p>
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.adapt_model_objective_according_to_local_profits">
+<code class="descname">adapt_model_objective_according_to_local_profits</code><span class="sig-paren">(</span><em>obj_expr</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.adapt_model_objective_according_to_local_profits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.extend_load_constraints">
+<code class="descname">extend_load_constraints</code><span class="sig-paren">(</span><em>constraint_dict</em>, <em>nodes_handled_by_other_gadgets</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.extend_load_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.extend_mapping_by_own_solution">
+<code class="descname">extend_mapping_by_own_solution</code><span class="sig-paren">(</span><em>mapping</em>, <em>load</em>, <em>nodes_handled_by_other_gadgets</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.extend_mapping_by_own_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.generate_constraints">
+<code class="descname">generate_constraints</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.generate_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.generate_flow_induction_at_root_constraint">
+<code class="descname">generate_flow_induction_at_root_constraint</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.generate_flow_induction_at_root_constraint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.generate_variables">
+<code class="descname">generate_variables</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.generate_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.AbstractGadget.in_node">
+<code class="descname">in_node</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.in_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>in-node of the gadget</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.AbstractGadget.interface_nodes">
+<code class="descname">interface_nodes</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.interface_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>all interface nodes (in- and out-nodes)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.AbstractGadget.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>gadget name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.AbstractGadget.out_nodes">
+<code class="descname">out_nodes</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.out_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>out-nodes of the gadget</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.reduce_flow_on_last_returned_mapping">
+<code class="descname">reduce_flow_on_last_returned_mapping</code><span class="sig-paren">(</span><em>used_flow</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.reduce_flow_on_last_returned_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.AbstractGadget.request">
+<code class="descname">request</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>the request graph of the gadget</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.set_substrate">
+<code class="descname">set_substrate</code><span class="sig-paren">(</span><em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.set_substrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.AbstractGadget.substrate">
+<code class="descname">substrate</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.substrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>the substrate</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.AbstractGadget.verify_mapping">
+<code class="descname">verify_mapping</code><span class="sig-paren">(</span><em>mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.AbstractGadget.verify_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform certain sanity checks usually performed by the <code class="xref py py-class docutils literal"><span class="pre">alib.solutions.Mapping</span></code>
+class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mapping</strong> (<em>solutions.Mapping</em>) – the request mapping</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of out-nodes that are mapped</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.gadget_model.CactusGadget">
+<em class="property">class </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">CactusGadget</code><span class="sig-paren">(</span><em>name</em>, <em>request</em>, <em>in_node</em>, <em>out_nodes</em>, <em>parent_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vnep_approx.gadget_model.CactusGadget.adapt_model_objective_according_to_local_profits">
+<code class="descname">adapt_model_objective_according_to_local_profits</code><span class="sig-paren">(</span><em>obj_expr</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget.adapt_model_objective_according_to_local_profits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.CactusGadget.extend_load_constraints">
+<code class="descname">extend_load_constraints</code><span class="sig-paren">(</span><em>constraint_dict</em>, <em>nodes_handled_by_other_gadgets</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget.extend_load_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.CactusGadget.extend_mapping_by_own_solution">
+<code class="descname">extend_mapping_by_own_solution</code><span class="sig-paren">(</span><em>mapping</em>, <em>load</em>, <em>nodes_handled_by_other_gadgets</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget.extend_mapping_by_own_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.CactusGadget.generate_constraints">
+<code class="descname">generate_constraints</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget.generate_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.CactusGadget.generate_flow_induction_at_root_constraint">
+<code class="descname">generate_flow_induction_at_root_constraint</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget.generate_flow_induction_at_root_constraint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.CactusGadget.generate_variables">
+<code class="descname">generate_variables</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget.generate_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.CactusGadget.reduce_flow_on_last_returned_mapping">
+<code class="descname">reduce_flow_on_last_returned_mapping</code><span class="sig-paren">(</span><em>used_flow</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget.reduce_flow_on_last_returned_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.CactusGadget.verify_mapping">
+<code class="descname">verify_mapping</code><span class="sig-paren">(</span><em>mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.CactusGadget.verify_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a cactus gadget, each node and each edge must be mapped.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mapping</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.gadget_model.DecisionGadget">
+<em class="property">class </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">DecisionGadget</code><span class="sig-paren">(</span><em>name</em>, <em>request</em>, <em>in_node</em>, <em>out_nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vnep_approx.gadget_model.DecisionGadget.adapt_model_objective_according_to_local_profits">
+<code class="descname">adapt_model_objective_according_to_local_profits</code><span class="sig-paren">(</span><em>obj_expr</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget.adapt_model_objective_according_to_local_profits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.DecisionGadget.extend_load_constraints">
+<code class="descname">extend_load_constraints</code><span class="sig-paren">(</span><em>constraint_dict</em>, <em>nodes_handled_by_other_gadgets</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget.extend_load_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.DecisionGadget.extend_mapping_by_own_solution">
+<code class="descname">extend_mapping_by_own_solution</code><span class="sig-paren">(</span><em>mapping</em>, <em>load</em>, <em>nodes_handled_by_other_gadgets</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget.extend_mapping_by_own_solution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.DecisionGadget.generate_constraints">
+<code class="descname">generate_constraints</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget.generate_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.DecisionGadget.generate_flow_induction_at_root_constraint">
+<code class="descname">generate_flow_induction_at_root_constraint</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget.generate_flow_induction_at_root_constraint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.DecisionGadget.generate_variables">
+<code class="descname">generate_variables</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget.generate_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.DecisionGadget.reduce_flow_on_last_returned_mapping">
+<code class="descname">reduce_flow_on_last_returned_mapping</code><span class="sig-paren">(</span><em>used_flow</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget.reduce_flow_on_last_returned_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.DecisionGadget.verify_mapping">
+<code class="descname">verify_mapping</code><span class="sig-paren">(</span><em>mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.DecisionGadget.verify_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="vnep_approx.gadget_model.DecisionModelError">
+<em class="property">exception </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">DecisionModelError</code><a class="headerlink" href="#vnep_approx.gadget_model.DecisionModelError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.gadget_model.ExtendedDecisionGraph">
+<em class="property">class </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">ExtendedDecisionGraph</code><span class="sig-paren">(</span><em>parent_gadget</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.ExtendedDecisionGraph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest">
+<em class="property">class </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">GadgetContainerRequest</code><span class="sig-paren">(</span><em>name</em>, <em>profit</em>, <em>rounding_threshold=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>A request that consists of several gadgets.</p>
+<p>The gadgets form a tree, there is exactly one root gadget and cycles are
+forbidden. Gadgets are connected by sharing a common node. Nodes that are
+designated to be used by multiple gadgets are called interface nodes.</p>
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.adapt_objective">
+<code class="descname">adapt_objective</code><span class="sig-paren">(</span><em>obj_expr</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.adapt_objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt the objective.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj_expr</strong> (<em>gurobipy.LinExpr</em>) – the objective expression</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the modified objective expression</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">gurobipy.LinExpr</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.add_gadget">
+<code class="descname">add_gadget</code><span class="sig-paren">(</span><em>gadget</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.add_gadget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a gadget to the request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>gadget</strong> (<a class="reference internal" href="#vnep_approx.gadget_model.AbstractGadget" title="vnep_approx.gadget_model.AbstractGadget"><em>AbstractGadget</em></a>) – the new gadget</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.add_node_flow_var">
+<code class="descname">add_node_flow_var</code><span class="sig-paren">(</span><em>model</em>, <em>i</em>, <em>u</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.add_node_flow_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a node flow variable of a model.</p>
+<p>Creates the variable if it does not exist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<em>gurobipy.Model</em>) – LP model</li>
+<li><strong>i</strong> (<em>str</em>) – request node</li>
+<li><strong>u</strong> (<em>str</em>) – substrate node</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the node flow variable</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">gurobipy.Var</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.check_and_update">
+<code class="descname">check_and_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.check_and_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if gadgets form a tree and set the root gadget.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#vnep_approx.gadget_model.GadgetError" title="vnep_approx.gadget_model.GadgetError"><strong>GadgetError</strong></a> – if a check fails</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.check_gadget_tree">
+<code class="descname">check_gadget_tree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.check_gadget_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the gadgets are connected as a tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#vnep_approx.gadget_model.GadgetError" title="vnep_approx.gadget_model.GadgetError"><strong>GadgetError</strong></a> – if a check fails</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.check_nodes">
+<code class="descname">check_nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.check_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check interface nodes and inner nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#vnep_approx.gadget_model.GadgetError" title="vnep_approx.gadget_model.GadgetError"><strong>GadgetError</strong></a> – if a check fails</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.extract_mappings">
+<code class="descname">extract_mappings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.extract_mappings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator that yields mappings of this <a class="reference internal" href="#vnep_approx.gadget_model.GadgetContainerRequest" title="vnep_approx.gadget_model.GadgetContainerRequest"><code class="xref py py-class docutils literal"><span class="pre">GadgetContainerRequest</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">yields tuples of (mapping, flow_value, load_dictionary)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.gadgets">
+<code class="descname">gadgets</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.gadgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>gadgets by name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.gadgets_by_in_nodes">
+<code class="descname">gadgets_by_in_nodes</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.gadgets_by_in_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>map in-nodes to a corresponding list of gadgets</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.generate_constraints">
+<code class="descname">generate_constraints</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.generate_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate LP constraints for each gadget and induce flow at root gadget.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> (<em>gurobipy.Model</em>) – LP model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.generate_variables">
+<code class="descname">generate_variables</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.generate_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate LP variables for each gadget.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> (<em>gurobipy.Model</em>) – LP model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.get_gadget_tree_graph">
+<code class="descname">get_gadget_tree_graph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.get_gadget_tree_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>request name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.profit">
+<code class="descname">profit</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.profit" title="Permalink to this definition">¶</a></dt>
+<dd><p>request profit</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.root_gadget">
+<code class="descname">root_gadget</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.root_gadget" title="Permalink to this definition">¶</a></dt>
+<dd><p>the root gadget</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.rounding_threshold">
+<code class="descname">rounding_threshold</code><em class="property"> = None</em><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.rounding_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>rounding threshold</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.set_substrate">
+<code class="descname">set_substrate</code><span class="sig-paren">(</span><em>substrate</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.set_substrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.update_root">
+<code class="descname">update_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.update_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update root gadget.</p>
+<p>A root gadget is a gadget with in-nodes that are not out-nodes of
+other gadgets.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#vnep_approx.gadget_model.GadgetError" title="vnep_approx.gadget_model.GadgetError"><strong>GadgetError</strong></a> – if there is not exactly one root gadget</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetContainerRequest.verify_request_mapping">
+<code class="descname">verify_request_mapping</code><span class="sig-paren">(</span><em>mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetContainerRequest.verify_request_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify a request mapping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mapping</strong> (<em>solutions.Mapping</em>) – the request mapping</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="vnep_approx.gadget_model.GadgetError">
+<em class="property">exception </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">GadgetError</code><a class="headerlink" href="#vnep_approx.gadget_model.GadgetError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="vnep_approx.gadget_model.GadgetModelCreator">
+<em class="property">class </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">GadgetModelCreator</code><span class="sig-paren">(</span><em>scenario</em>, <em>gurobi_settings=None</em>, <em>optimization_callback=None</em>, <em>lp_output_file=None</em>, <em>potential_iis_filename=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetModelCreator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetModelCreator.create_constraints_other_than_bounding_loads_by_capacities">
+<code class="descname">create_constraints_other_than_bounding_loads_by_capacities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetModelCreator.create_constraints_other_than_bounding_loads_by_capacities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetModelCreator.create_objective">
+<code class="descname">create_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetModelCreator.create_objective" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetModelCreator.create_variables_other_than_embedding_decision_and_request_load">
+<code class="descname">create_variables_other_than_embedding_decision_and_request_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetModelCreator.create_variables_other_than_embedding_decision_and_request_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetModelCreator.post_process_fractional_computation">
+<code class="descname">post_process_fractional_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetModelCreator.post_process_fractional_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetModelCreator.post_process_integral_computation">
+<code class="descname">post_process_integral_computation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetModelCreator.post_process_integral_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetModelCreator.recover_fractional_solution_from_variables">
+<code class="descname">recover_fractional_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetModelCreator.recover_fractional_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vnep_approx.gadget_model.GadgetModelCreator.recover_integral_solution_from_variables">
+<code class="descname">recover_integral_solution_from_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vnep_approx.gadget_model.GadgetModelCreator.recover_integral_solution_from_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="vnep_approx.gadget_model.MappingCombinationError">
+<em class="property">exception </em><code class="descclassname">vnep_approx.gadget_model.</code><code class="descname">MappingCombinationError</code><a class="headerlink" href="#vnep_approx.gadget_model.MappingCombinationError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="extendedgraph.html" title="previous chapter"><code class="docutils literal"><span class="pre">extendedgraph</span></code></a></li>
+      <li>Next: <a href="modelcreator_decomposition.html" title="next chapter"><code class="docutils literal"><span class="pre">modelcreator_decomposition</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vnep_approx/gadget_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, INET/TU Berlin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/vnep_approx/gadget_model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
