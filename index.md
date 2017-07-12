@@ -13,7 +13,7 @@
 ## Overview of scenario generation parameters
 
 | Parameter             | Values                            |
-|----------------------:|:---------------------------------:|
+|----------------------:|-----------------------------------|
 | Topology              | \{BellCanada, Geant, Uunet\}      |
 | Number of Requests    | \{25, 50, 75, 100, 125\}          |
 | Exp. number of nodes  | \{5, 6, 7\}                       |
