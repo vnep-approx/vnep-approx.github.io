@@ -39,12 +39,13 @@ Performance of the randomized rounding algorithm. Out of 250 rounding operations
 
 ## Averaged (over 90 scenarios per square) relative performance of augmentation-free heuristics
 
-|![](images/evaluation_plots/req_ef/comparison_baseline_rr___AXES_NO_REQ_vs_EDGE_RF__.png) | ![](images/evaluation_plots/req_ef/comparison_baseline_mdk___AXES_NO_REQ_vs_EDGE_RF__.png) |
-|----------------------:|-----------------------------------|
+<table>
+<tr><td><img src="images/evaluation_plots/req_ef/comparison_baseline_rr___AXES_NO_REQ_vs_EDGE_RF__.png"></td><td><img src="images/evaluation_plots/req_ef/comparison_baseline_mdk___AXES_NO_REQ_vs_EDGE_RF__.png"></td></tr>
+</table>
 
 ## Runtime for the three stages of execution of our approximation algorithm
 
 
 |![](images/evaluation_plots/req_ef/randround_runtime_pre___AXES_NO_REQ_vs_EDGE_RF__.png) | ![](images/evaluation_plots/req_ef/randround_runtime_opt___AXES_NO_REQ_vs_EDGE_RF__.png) |
 |----------------------:|-----------------------------------|
-| ![](images/evaluation_plots/req_ef/randround_runtime_post___AXES_NO_REQ_vs_EDGE_RF__.png) | ![](images/evaluation_plots/req_ef/mdk_runtime_total___AXES_NO_REQ_vs_EDGE_RF__.png)              |
+| ![](images/evaluation_plots/req_ef/randround_runtime_post___AXES_NO_REQ_vs_EDGE_RF__.png) | ![](images/evaluation_plots/req_ef/mdk_runtime_total___AXES_NO_REQ_vs_EDGE_RF__.png) |
